@@ -1,0 +1,513 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relaxing Sound</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background-color: #3A3B7B;
+            color: #FFFFFF;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #FFFFFF;
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        nav .container {
+            display: flex;
+            align-items: center;
+        }
+
+        .back-button {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: #999AE7;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        h1 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #3A3B7B;
+        }
+
+        .content {
+            margin-top: 70px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .menu-container {
+            background-color: #999AE7;
+            border-radius: 15px;
+            padding: 15px;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .menu-item:hover, .menu-item.active {
+            background-color: #FFFFFF;
+            transform: translateY(-3px);
+        }
+
+        .icon-bg {
+            background-color: #f582ae;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .menu-item:nth-child(2) .icon-bg {
+            background-color: #8bd3dd;
+        }
+
+        .menu-item:nth-child(3) .icon-bg {
+            background-color: #f3d2c1;
+        }
+
+        .menu-icon {
+            color: #FFFFFF;
+            font-size: 18px;
+        }
+
+        .menu-text {
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+            color: #3A3B7B;
+        }
+
+        .submenu-container {
+            background-color: #999AE7;
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .submenu {
+            display: flex;
+            justify-content: space-between;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .submenu::-webkit-scrollbar {
+            display: none;
+        }
+
+        .submenu-item {
+            background: none;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 10px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 14px;
+            color: #FFFFFF;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .submenu-item:hover, .submenu-item.active {
+            background-color: #FFFFFF;
+            color: #3A3B7B;
+        }
+
+        .content-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .content-item {
+            background-color: #999AE7;
+            border-radius: 15px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .content-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-icon-bg {
+            background-color: #f582ae;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .content-item:nth-child(2) .content-icon-bg {
+            background-color: #8bd3dd;
+        }
+
+        .content-item:nth-child(3) .content-icon-bg {
+            background-color: #f3d2c1;
+        }
+
+        .content-item:nth-child(4) .content-icon-bg {
+            background-color: #ffd803;
+        }
+
+        .content-icon {
+            color: #FFFFFF;
+            font-size: 20px;
+        }
+
+        .content-text {
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+        .bookmark-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 18px;
+            color: #FFFFFF;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .bookmark-icon:hover {
+            color: #3A3B7B;
+        }
+
+        @media (min-width: 768px) {
+            .content {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+
+            .menu-container {
+                width: 250px;
+                position: sticky;
+                top: 90px;
+            }
+
+            .menu {
+                flex-direction: column;
+            }
+
+            .menu-item {
+                flex-direction: row;
+                justify-content: flex-start;
+                padding: 15px;
+                margin-bottom: 10px;
+            }
+
+            .icon-bg {
+                margin-right: 15px;
+                margin-bottom: 0;
+                width: 50px;
+                height: 50px;
+            }
+
+            .menu-icon {
+                font-size: 24px;
+            }
+
+            .menu-text {
+                font-size: 16px;
+            }
+
+            .main-content {
+                flex: 1;
+            }
+
+            .content-list {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+
+            .content-item {
+                padding: 20px;
+            }
+
+            .content-icon-bg {
+                width: 50px;
+                height: 50px;
+            }
+
+            .content-text {
+                font-size: 16px;
+            }
+
+            .bookmark-icon {
+                font-size: 20px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .content-list {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <button class="back-button">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <h1>Relaxing Sound</h1>
+        </div>
+    </nav>
+
+    <div class="container content">
+        <div class="menu-container">
+            <div class="menu">
+                <div class="menu-item active" data-menu="white-noise">
+                    <div class="icon-bg">
+                        <i class="fas fa-wave-square menu-icon"></i>
+                    </div>
+                    <span class="menu-text">White Noise</span>
+                </div>
+                <div class="menu-item" data-menu="meditation-music">
+                    <div class="icon-bg">
+                        <i class="fas fa-music menu-icon"></i>
+                    </div>
+                    <span class="menu-text">Meditasi Musik</span>
+                </div>
+                <div class="menu-item" data-menu="favorite">
+                    <div class="icon-bg">
+                        <i class="fas fa-heart menu-icon"></i>
+                    </div>
+                    <span class="menu-text">Favorit</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="submenu-container">
+                <div class="submenu" id="white-noise-submenu">
+                    <button class="submenu-item active">Alam</button>
+                    <button class="submenu-item">Hujan</button>
+                    <button class="submenu-item">ASMR</button>
+                    <button class="submenu-item">Hewan</button>
+                </div>
+                <div class="submenu" id="meditation-music-submenu" style="display: none;">
+                    <button class="submenu-item">Tidur Cepat</button>
+                    <button class="submenu-item">Tidur Mendalam</button>
+                    <button class="submenu-item">Penyembuhan</button>
+                </div>
+                <div class="submenu" id="favorite-submenu" style="display: none;">
+                    <button class="submenu-item">Semua</button>
+                    <button class="submenu-item">Terbaru</button>
+                </div>
+            </div>
+
+            <div class="content-list" id="content-list">
+                <!-- Content items will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const menuItems = document.querySelectorAll('.menu-item');
+        const submenus = {
+            'white-noise': document.getElementById('white-noise-submenu'),
+            'meditation-music': document.getElementById('meditation-music-submenu'),
+            'favorite': document.getElementById('favorite-submenu')
+        };
+        const contentList = document.getElementById('content-list');
+
+        const content = {
+            'white-noise': {
+                'Alam': [
+                    { icon: 'fa-tree', text: 'Forest Sounds' },
+                    { icon: 'fa-water', text: 'Ocean Waves' },
+                    { icon: 'fa-wind', text: 'Gentle Breeze' },
+                    { icon: 'fa-mountain', text: 'Mountain Echo' },
+                    { icon: 'fas fa-stream', text: 'Gentle Stream' },
+                    { icon: 'fas fa-fire', text: 'Campfire' },
+                    { icon: 'fas fa-wind', text: 'Wind Chimes' },
+                    { icon: 'fas fa-bolt', text: 'Thunderstorm' },
+                    { icon: 'fas fa-bug', text: 'Crickets' },
+                    { icon: 'fas fa-water', text: 'Waterfall' },
+                ],
+                'Hujan': [
+                    { icon: 'fa-cloud-rain', text: 'Light Rain' },
+                    { icon: 'fa-cloud-showers-heavy', text: 'Heavy Rain' },
+                    { icon: 'fa-bolt', text: 'Thunderstorm' },
+                    { icon: 'fa-umbrella', text: 'Rain on Umbrella' },
+                    { icon: 'fa-water', text: 'Raindrops on Leaves' },
+                    { icon: 'fa-cloud', text: 'Distant Thunder' }
+                ],
+                'ASMR': [
+                    { icon: 'fa-pencil-alt', text: 'Writing Sounds' },
+                    { icon: 'fa-cookie-bite', text: 'Eating Sounds' },
+                    { icon: 'fa-spray-can', text: 'Tapping Sounds' },
+                    { icon: 'fa-wind', text: 'Whispering' }
+                ],
+                'Hewan': [
+                    { icon: 'fa-crow', text: 'Bird Chirping' },
+                    { icon: 'fa-frog', text: 'Frog Croaking' },
+                    { icon: 'fa-cat', text: 'Cat Purring' },
+                    { icon: 'fa-horse', text: 'Horse Galloping' }
+                ]
+            },
+            'meditation-music': {
+                'Tidur Cepat': [
+                    { icon: 'fa-moon', text: 'Lullaby' },
+                    { icon: 'fa-star', text: 'Starry Night' },
+                    { icon: 'fa-cloud', text: 'Dreamy Clouds' },
+                    { icon: 'fa-bed', text: 'Sleepy Time' }
+                ],
+                'Tidur Mendalam': [
+                    { icon: 'fa-water', text: 'Deep Ocean' },
+                    { icon: 'fa-om', text: 'Om Chanting' },
+                    { icon: 'fa-spa', text: 'Zen Garden' },
+                    { icon: 'fa-wind', text: 'Whisper Winds' }
+                ],
+                'Penyembuhan': [
+                    { icon: 'fa-heartbeat', text: 'Heart Rhythm' },
+                    { icon: 'fa-sun', text: 'Solar Plexus' },
+                    { icon: 'fa-tree', text: 'Forest Therapy' },
+                    { icon: 'fa-fire', text: 'Inner Fire' }
+                ]
+            },
+            'favorite': {
+                'Semua': [
+                    { icon: 'fa-star', text: 'Top Rated' },
+                    { icon: 'fa-heart', text: 'Most Loved' },
+                    { icon: 'fa-play', text: 'Most Played' },
+                    { icon: 'fa-clock', text: 'Recently Added' }
+                ],
+                'Terbaru': [
+                    { icon: 'fa-calendar', text: 'This Week' },
+                    { icon: 'fa-calendar-alt', text: 'This Month' },
+                    { icon: 'fa-calendar-check', text: 'Last Update' },
+                    { icon: 'fa-calendar-plus', text: 'New Additions' }
+                ]
+            }
+        };
+
+        function renderContent(menuType, submenuType) {
+            contentList.innerHTML = '';
+            const items = content[menuType][submenuType];
+            items.forEach((item, index) => {
+                const contentItem = document.createElement('div');
+                contentItem.className = 'content-item';
+                contentItem.innerHTML = `
+                    <div class="content-icon-bg">
+                        <i class="fas ${item.icon} content-icon"></i>
+                    </div>
+                    <span class="content-text">${item.text}</span>
+                    <button class="bookmark-icon">
+                        <i class="fas fa-bookmark"></i>
+                    </button>
+                `;
+                contentList.appendChild(contentItem);
+            });
+        }
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                menuItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+
+                Object.values(submenus).forEach(submenu => submenu.style.display = 'none');
+
+                const menuType = item.getAttribute('data-menu');
+                if (submenus[menuType]) {
+                    submenus[menuType].style.display = 'flex';
+                }
+
+                const submenuItems = submenus[menuType].querySelectorAll('.submenu-item');
+                submenuItems.forEach(subItem => {
+                    subItem.classList.remove('active');
+                });
+                if (submenuItems[0]) {
+                    submenuItems[0].classList.add('active');
+                }
+
+                renderContent(menuType, submenuItems[0]?.textContent || '');
+            });
+        });
+
+        document.querySelectorAll('.submenu-item').forEach(subItem => {
+            subItem.addEventListener('click', () => {
+                const activeMenu = document.querySelector('.menu-item.active').getAttribute('data-menu');
+                document.querySelectorAll('.submenu-item').forEach(i => i.classList.remove('active'));
+                subItem.classList.add('active');
+                renderContent(activeMenu, subItem.textContent);
+            });
+        });
+
+        const initialMenuType = 'white-noise';
+        renderContent(initialMenuType, 'Alam');
+
+        contentList.addEventListener('click', (e) => {
+            const bookmarkIcon = e.target.closest('.bookmark-icon');
+            if (bookmarkIcon) {
+                const iconElement = bookmarkIcon.querySelector('i');
+                iconElement.style.color = iconElement.style.color === 'rgb(58, 59, 123)' ? '#FFFFFF' : '#3A3B7B';
+            }
+        });
+    </script>
+</body>
+</html>

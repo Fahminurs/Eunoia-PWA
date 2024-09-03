@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diskusi</title>
+    <!-- Back Icon CDN -->
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.5.1/uicons-regular-rounded/css/uicons-regular-rounded.css" />
+    <!-- Search Icon CDN -->
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.5.1/uicons-bold-straight/css/uicons-bold-straight.css" />
+    <!-- Location Arrow Icon CDN -->
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.5.1/uicons-solid-rounded/css/uicons-solid-rounded.css" />
+
+    <!-- Icon Bookmark CDN -->
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.5.1/uicons-bold-rounded/css/uicons-bold-rounded.css" />
+
+    <!-- Icon Dukungan CDN -->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.5.1/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <!-- /* Icon Komen CDN */ -->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.5.1/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <!-- Icon Info -->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.5.1/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Playwrite+ID:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+    
+          a {
+            text-decoration: none;
+          }
+    
+          .rotate-icon {
+            display: inline-block;
+            transform: rotate(
+              45deg
+            ); /* Ganti 45deg dengan sudut rotasi yang diinginkan */
+          }
+          body {
+            font-family: "poppins", sans-serif;
+            background-color: #3A3B7B;
+            margin: 0;
+            padding: 0;
+          }
+    
+          nav {
+            position: fixed;
+            top: 0;
+            background-color: #ffffff;
+            width: 100%;
+            height: 50px;
+            z-index: 999999;
+            box-shadow: 1px 1px 20px 8px rgba(0, 0, 0, 0.49);
+            -webkit-box-shadow: 1px 1px 20px 8px rgba(0, 0, 0, 0.49);
+            -moz-box-shadow: 1px 1px 20px 8px rgba(0, 0, 0, 0.49);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+    
+          nav h2 {
+            position: relative;
+            color: black;
+            left:-10px;
+            font-size: 20px;
+            font-weight: 600;
+          }
+    
+          nav span {
+            display: flex;
+            align-items: center;
+            /* Menempatkan icon arrow di tengah vertikal */
+            justify-content: center;
+            margin-left: 10px;
+            /* Tambahkan margin untuk memberi jarak dari tepi */
+            margin-right: 10px;
+          }
+    
+          nav span i {
+            display: flex;
+            color: black;
+            font-size: 30px;
+            align-items: center;
+            align-content: center;
+          }
+    
+          nav span .fi.fi-bs-search {
+            font-size: 20px;
+          }
+    
+          nav a {
+            text-decoration: none;
+          }
+    
+          .container-eunoia-diskusi-input {
+            margin: 70px 0 0 0;
+            /* padding: 10px; */
+          }
+    
+          .card-eunoia-diskusi-input {
+            border-radius: 7px;
+            background-color: #999ae7;
+            padding: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            height: 109px;
+          }
+    
+          .card-eunoia-diskusi {
+            background-color: #999ae7;
+            padding: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            height: 109px;
+          }
+    
+          .card-eunoia-diskusi-input span {
+            font-size: 12px;
+            font-weight: 500;
+          }
+    
+          .card-eunoia-diskusi-input img {
+            display: flex;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            position: relative;
+            border-radius: 50%;
+            margin-right: 15px;
+          }
+    
+          .card-eunoia-diskusi-input .content-eunoia {
+            flex-grow: 1;
+          }
+    
+          .card-eunoia-diskusi-input .user-info-diskusi {
+            margin-bottom: 10px;
+          }
+    
+          .card-eunoia-diskusi-input .user-info-diskusi span {
+            font-weight: 500;
+            font-size: 14px;
+          }
+    
+          .card-eunoia-diskusi-input .input-diskusi {
+            position: relative;
+            top: -5px;
+            background-color: white;
+            width: 900px; /* Menggunakan 100% dari lebar parent container */
+            max-width: 700px; /* Batas lebar maksimum */
+            min-width: 20px; /* Batas lebar minimum */
+            height: 30px;
+            display: flex;
+    
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 50px;
+            padding: 0 20px;
+            box-sizing: border-box; /* Pastikan padding diperhitungkan dalam lebar total */
+          }
+    
+          .card-eunoia-diskusi-input .input-diskusi a {
+            text-decoration: none;
+            color: #4b4c4d;
+          }
+    
+          .card-eunoia-diskusi-input .input-diskusi a i {
+            font-size: 24px; /* Sesuaikan ukuran icon jika diperlukan */
+          }
+    
+          .card-eunoia-diskusi-input .input-diskusi p {
+            font-size: 12px;
+            opacity: 70%;
+            font-weight: 600;
+            color: rgb(71, 71, 71);
+          }
+    
+          /* card-eunoia-diskusi  */
+          .container-eunoia-diskusi {
+            margin: 0 0 0 0;
+            /* padding: 10px; */
+            padding: 0;
+          }
+          .card-eunoia-diskusi {
+            border-radius: 7px;
+            position: relative;
+            background-color: #999ae7;
+            padding: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: start;
+            margin-bottom: 10px;
+            height: auto;
+            flex-direction: column; /* Arrange children elements vertically */
+            align-items: flex-start; /* Align the items to the start */
+          }
+          .profile-diskusi {
+            padding: 5px 5px;
+            display: flex;
+            align-items: center;
+          }
+          .card-eunoia-diskusi .profile-diskusi {
+            display: flex;
+            width: 150px;
+            height: 36px;
+            background-color: white;
+            border-radius: 4px;
+          }
+          .card-eunoia-diskusi .profile-diskusi img {
+            display: flex;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+    
+            border-radius: 50%;
+            /* margin-right: 15px; */
+          }
+          .profile-diskusi h3 {
+            margin: 10px 10px;
+            font-size: 10px;
+            font-weight: 700;
+          }
+    
+          .isi-diskusi .tanggal-diskusi {
+            /* margin-top: 10px; */
+            color: #3A3B7B;
+            width: auto;
+            height: auto;
+            background-color: rgb(255, 255, 255);
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 10px;
+          }
+          .isi-diskusi-danger .tanggal-diskusi {
+            /* margin-top: 10px; */
+            position: relative;
+            top: 5px;
+            color: #ffffff;
+            width: auto;
+            height: auto;
+            /* background-color: rgb(255, 255, 255); */
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 10px;
+          }
+    
+          .isi-diskusi {
+            margin-top: 10px;
+            width: auto;
+            height: auto;
+            background-color: white;
+            border-radius: 4px;
+            padding: 10px;
+          }
+          .isi-diskusi-danger {
+            position: relative;
+            margin-top: 10px;
+            width: auto;
+            height: auto;
+            background-color: #FF1515;
+            border-radius: 4px;
+            padding: 10px;
+            
+          }
+    
+          .isi-diskusi-danger a .fi-sr-square-info{
+            position: absolute;
+            top: 10px; /* Adjust the vertical position */
+            right: 10px; /* Adjust the horizontal position */
+            font-size: 20px;
+          }
+    
+          .isi-diskusi p {
+            color: #3A3B7B;
+            font-weight: 600;
+            font-size: 12px;
+          }
+          .isi-diskusi-danger p {
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 12px;
+          }
+    
+          .card-eunoia-diskusi a .fi-br-bookmark {
+            position: absolute;
+            top: 10px; /* Adjust the vertical position */
+            right: 10px; /* Adjust the horizontal position */
+          }
+    
+          .card-eunoia-diskusi a span i {
+            font-size: 24px; /* Adjust the icon size if needed */
+            color: #fff; /* Change the color of the icon to fit your design */
+          }
+    
+          .aksi-diskusi{
+            margin-top: 10px;
+            display: flex;
+            width: 232px;
+            height: 25px;
+            background-color: #3A3B7B;
+            border-radius: 4px;
+            padding: 5px;
+            align-items: center;
+          }
+    
+          .dukungan-diskusi{
+    
+            display: flex;
+            width: 140px;
+            height: 23px;
+            background-color: #ffffff;
+            border-radius: 4px;
+            justify-content: space-between;
+            padding: 0 13px;
+            align-items: center;
+          }
+          .dukungan-diskusi p {
+           
+            font-size: 12px;
+    
+          }
+          .fi-sr-up{
+            position: relative;
+            left: -5px;
+            color:#46C453 ;
+          }
+          .fi-sr-down{
+            position: relative;
+            right: -5px;
+            color:#FF1B1B ;
+          }
+    
+          .komentar-diskusi {
+      display: flex;
+      align-items: center;
+    
+      gap: 5px; /* Jarak antara ikon dan teks */
+      margin-left: auto; /* Mendorong elemen ke kanan */
+    }
+    
+    .komentar-diskusi .fi-bs-comment-dots {
+      position: relative;
+      left: -10px;
+      top:2px;
+      font-size: 19px;
+      color: #ffffff;
+      display: inline-block; /* Pastikan ikon dianggap sebagai blok */
+      transform: scaleX(-1) !important; /* Paksa transformasi untuk diterapkan */
+    }
+    
+    .komentar-diskusi p {
+      position: relative;
+      left: -6px;
+      /* top:2px; */
+      font-size: 12px;
+      color: #ffffff;
+    }
+    .badge-notification {
+            position: absolute;
+            top: -30px; /* Adjust as needed */
+            left: 70%;
+            transform: translateX(-15%);
+            background-color: #ffffff; /* Green background for notification */
+            color: rgb(255, 0, 0);
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: none; /* Hidden by default */
+            font-size: 12px;
+            font-weight: 600;
+          }
+    
+          .isi-diskusi {
+            position: relative; /* Add this to position the badge correctly */
+          }
+    
+          #info-icon:hover .badge-notification,
+    #info-icon:active .badge-notification {
+      display: block; /* Show badge */
+    }
+    
+    
+    
+          @media screen and (max-width: 900px) {
+            .card-eunoia-diskusi-input .input-diskusi {
+              width: 120%; /* Menggunakan 100% dari lebar parent container */
+              max-width: 470px; /* Batas lebar maksimum */
+              min-width: 20px; /* Batas lebar minimum */
+              height: 30px;
+              margin-right: 150px;
+            }
+          }
+          @media screen and (max-width: 576px) {
+            .card-eunoia-diskusi-input .input-diskusi {
+              width: 100%; /* Menggunakan 100% dari lebar parent container */
+              max-width: 470px; /* Batas lebar maksimum */
+              min-width: 20px; /* Batas lebar minimum */
+              height: 30px;
+              margin-right: 150px;
+            }
+          }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href=""><span><i class="fi fi-rr-arrow-small-left"></i></span></a>
+        <h2>Eunoia</h2>
+        <a href=""><span><i class="fi fi-bs-search"></i></span
+      ></a>
+    </nav>
+    <div class="container-eunoia-diskusi-input">
+        <div class="card-eunoia-diskusi-input">
+            <img src="images/Diskusi/Pengguna/User1.png" alt="Profile Picture" />
+            <div class="content">
+                <div class="user-info-diskusi">
+                    <span>Sebagai Anonymous #122</span>
+                </div>
+                <a href="">
+                    <div class="input-diskusi">
+                        <p>Apa yang kamu Pikirkan?</p>
+                        <i class="fi fi-sr-location-arrow rotate-icon"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-eunoia-diskusi">
+        <div class="card-eunoia-diskusi">
+            <div class="profile-diskusi">
+                <img src="images/Diskusi/Pengguna/User1.png" alt="" />
+                <h3>Anonymous #122</h3>
+            </div>
+            <a href=""><span><i class="fi fi-br-bookmark"></i></span
+      ></a>
+            <div class="isi-diskusi-danger">
+                <div class="tanggal-diskusi">12 Agustus 2024, 19.20 pm</div>
+                <a href="" id="info-icon"><span><i class="fi fi-sr-square-info"></i></span>
+          <div class="badge-notification" id="notification">Potensi pikiran bunuh diri terdeteksi.</div>
+        
+        </a>
+                <p>
+                    Ketika seseorang merasa berada di tepi jurang emosional dan mempertimbangkan untuk mengakhiri hidup, rasanya seperti berada dalam kegelapan total tanpa harapan untuk keluar. Saya pernah berbicara dengan seseorang yang berada dalam situasi ini, dan betapa
+                    menyedihkannya melihat betapa beratnya perasaan mereka. Rasa putus asa yang mendalam dan perasaan bahwa tidak ada jalan keluar dari penderitaan mereka adalah pengalaman yang sangat menyakitkan untuk dipahami. Itu adalah pengingat yang
+                    kuat tentang betapa pentingnya dukungan dan perhatian yang sensitif untuk mereka yang menghadapi krisis mental. Setiap kata, setiap tindakan kecil dari kasih sayang dan dukungan bisa menjadi cahaya dalam kegelapan yang mereka rasakan.
+                </p>
+            </div>
+            <div class="aksi-diskusi">
+                <div class="dukungan-diskusi">
+                    <form action="gggg.com" method="get">
+                        <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
+                            <span><i class="fi fi-sr-up"></i></span>
+                        </button>
+                    </form>
+                    <p>Dukung Naik | 800</p>
+                    <form action="gggg.com" method="get">
+                        <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
+                            <span><i class="fi fi-sr-down"></i></span>
+                        </button>
+                    </form>
+                </div>
+                <div class="komentar-diskusi">
+
+                    <a href=""><span><i class="fi fi-bs-comment-dots"></i></span> </a>
+                    <p>200</p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="container-eunoia-diskusi">
+        <div class="card-eunoia-diskusi">
+            <div class="profile-diskusi">
+                <img src="images/Diskusi/Pengguna/User2.png" alt="" />
+                <h3>Anonymous #522</h3>
+            </div>
+            <a href=""><span><i class="fi fi-br-bookmark"></i></span
+      ></a>
+            <div class="isi-diskusi">
+                <div class="tanggal-diskusi">12 Agustus 2024, 19.20 pm</div>
+                <p>
+                    Baru-baru ini saya mengalami pengalaman yang sangat mendalam dan ingin berbagi di sini. Saya bertemu dengan seseorang bernama David, yang berjuang dengan gangguan jiwa dan sering kali merasa terasing dan putus asa. Suatu hari di taman kota, saya melihat
+                    David duduk sendirian dengan tampang yang sangat cemas. Karena latar belakang saya di bidang kesehatan mental, saya merasa terdorong untuk mendekatinya dan mencoba berbicara dengannya. Awalnya, David sangat tertutup, tapi dengan kesabaran
+                    dan empati, akhirnya dia mulai membuka diri tentang apa yang dia rasakan.
+                    <br> Saya membantunya mendapatkan informasi tentang layanan kesehatan mental dan kelompok dukungan di area kami. Melihat bagaimana sedikit perhatian dan dukungan bisa membuat perbedaan yang signifikan dalam hidupnya sangat menyentuh. Cerita
+                    ini mengingatkan saya akan pentingnya dukungan dan perhatian terhadap mereka yang mengalami gangguan jiwa. Kadang-kadang, hal kecil seperti mendengarkan dengan penuh empati bisa menjadi langkah besar menuju pemulihan.
+                </p>
+            </div>
+            <div class="aksi-diskusi">
+                <div class="dukungan-diskusi">
+                    <form action="gggg.com" method="get">
+                        <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
+                            <span><i class="fi fi-sr-up"></i></span>
+                        </button>
+                    </form>
+                    <p>Dukung Naik | 800</p>
+                    <form action="gggg.com" method="get">
+                        <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
+                            <span><i class="fi fi-sr-down"></i></span>
+                        </button>
+                    </form>
+                </div>
+                <div class="komentar-diskusi">
+
+                    <a href=""><span><i class="fi fi-bs-comment-dots"></i></span> </a>
+                    <p>10</p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="container-eunoia-diskusi">
+        <div class="card-eunoia-diskusi">
+            <div class="profile-diskusi">
+                <img src="images/Diskusi/Pengguna/User3.png" alt="" />
+                <h3>Anonymous #424</h3>
+            </div>
+            <a href=""><span><i class="fi fi-br-bookmark"></i></span
+      ></a>
+            <div class="isi-diskusi">
+                <div class="tanggal-diskusi">12 Agustus 2024, 21.00 pm</div>
+                <p>
+                    Menangani kesehatan mental sering kali melibatkan berhadapan dengan berbagai macam kepribadian dan dinamika interpersonal yang kompleks. Salah satu pengalaman yang mengesankan saya adalah ketika saya bertemu dengan seseorang yang menunjukkan ciri-ciri
+                    Narcissistic Personality Disorder (NPD). Interaksi dengan individu tersebut mengajarkan saya banyak hal tentang batasan diri dan pentingnya menjaga kesehatan mental kita sendiri.
+                </p>
+            </div>
+            <div class="aksi-diskusi">
+                <div class="dukungan-diskusi">
+                    <form action="gggg.com" method="get">
+                        <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
+                            <span><i class="fi fi-sr-up"></i></span>
+                        </button>
+                    </form>
+                    <p>Dukung Naik | 800</p>
+                    <form action="gggg.com" method="get">
+                        <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
+                            <span><i class="fi fi-sr-down"></i></span>
+                        </button>
+                    </form>
+                </div>
+                <div class="komentar-diskusi">
+
+                    <a href=""><span><i class="fi fi-bs-comment-dots"></i></span> </a>
+                    <p>5</p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        let notificationTimeout;
+        
+        document.getElementById('info-icon').addEventListener('click', function(event) {
+          event.preventDefault(); // Prevent default anchor click behavior
+          var notification = document.getElementById('notification');
+          
+          notification.style.display = 'block'; // Show notification
+        
+          // Clear any existing timeout to prevent flickering
+          clearTimeout(notificationTimeout);
+          
+          // Add hover event to keep notification visible when hovered
+          document.getElementById('info-icon').addEventListener('mouseover', function() {
+            notification.style.display = 'block'; // Keep notification visible on hover
+            clearTimeout(notificationTimeout); // Clear timeout to prevent hiding
+          });
+        
+          // Add mouseout event to hide notification if not hovered
+          document.getElementById('info-icon').addEventListener('mouseout', function() {
+            notificationTimeout = setTimeout(function() {
+              notification.style.display = 'none'; // Hide notification if not hovered
+            }, 3000); // Adjust this time as needed
+          });
+        });
+    </script>
+</body>
+
+</html>

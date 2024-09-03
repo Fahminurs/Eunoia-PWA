@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sankofa+Display&display=swap');
+
+
+html{
+
+    background-image: radial-gradient(circle, #e3a5c7, #c78db8, #aa77aa, #8a629c, #694f8e);
+}
+
+        body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+}
+
+.splash-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo img {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.illustration img {
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 0.9em;
+    max-width: 370px;
+    margin: 0 auto 20px auto;
+    font-family: 'Playwrite GB S' , sans-serif ;
+}
+
+.loading button {
+    
+background-image: linear-gradient(to right top, #9c6dd4, #9768d2, #8865ce, #7863ca, #6860c5, #575dc0);
+    color: #fff;
+    border: none;
+    padding: px 15px;
+    font-size: 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: auto;
+    height: 40px;
+    font-family: 'Poppins' , sans-serif ;
+
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+footer {
+    font-size: 0.9em;
+    margin-top: 20px;
+    font-family: 'Playwrite GB S' , sans-serif ;
+
+}
+

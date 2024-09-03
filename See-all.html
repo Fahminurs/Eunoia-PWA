@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>Mental Health Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <!-- Back Icon CDN -->
+        <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.5.1/uicons-regular-rounded/css/uicons-regular-rounded.css" />
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sankofa+Display&display=swap');
+
+
+nav{
+   
+   position: fixed;
+   top: 0;
+   
+  
+   background-color: #ffffff;
+   width: 100%;
+   height: 50px;
+   z-index: 999999;
+   box-shadow: 1px 1px 20px 8px rgba(0,0,0,0.49);
+-webkit-box-shadow: 1px 1px 20px 8px rgba(0,0,0,0.49);
+-moz-box-shadow: 1px 1px 20px 8px rgba(0,0,0,0.49);
+display: flex;
+   align-items: center;
+   
+  
+}
+
+
+nav h2{
+   position: relative;
+   /* top: -5px; */
+   left:10px;
+   color: black;
+   font-size: 20px;
+   font-weight: 600;
+}
+
+nav span {
+   display: flex;
+   align-items: center;  /* Menempatkan icon arrow di tengah vertikal */
+   justify-content: center;
+   margin-left: 10px; /* Tambahkan margin untuk memberi jarak dari tepi */
+   margin-right: 10px;
+}
+nav span i{
+  
+   display: flex;
+   color: black;
+   font-size: 30px;
+   align-items: center;
+   align-content: center;
+}
+nav a{
+    text-decoration: none;
+}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 64rem;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        h1 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: #4338ca;
+        }
+        .card {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-bottom: 1.5rem;
+        }
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+        #moodHistory {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+        .mood-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+        .mood-item:last-child {
+            margin-right: 0;
+        }
+        .mood-icon {
+            font-size: 24px;
+            margin-bottom: 0.25rem;
+        }
+        .mood-Minggu {
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .chart-container {
+            position: relative;
+            height: 50vh;
+            width: 100%;
+        }
+        
+        /* Mood colors */
+        .mood-sad {
+            background-color: #fee2e2;
+            border: 1px solid #fca5a5;
+            color: #991b1b;
+        }
+        .mood-neutral {
+            background-color: #fef3c7;
+            border: 1px solid #fcd34d;
+            color: #92400e;
+        }
+        .mood-happy {
+            background-color: #d1fae5;
+            border: 1px solid #6ee7b7;
+            color: #065f46;
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            h2 {
+                font-size: 1.25rem;
+            }
+            .mood-icon {
+                font-size: 20px;
+            }
+            .mood-Minggu {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="Home.html"><span><i class="fi fi-rr-arrow-small-left"></i></span></a>
+        <h2>Menulis Diary</h2>
+    </nav>
+    <div style="margin-top: 50px;"></div>
+    <div class="container">
+        <h1>Lacak Kesehatan Mental Anda</h1>
+
+        <div class="card">
+            <h2>Riwayat Suasana Hati</h2>
+            <div id="moodHistory"></div>
+        </div>
+
+        <div class="card">
+            <h2>Depresi, Anxiety, dan Stress Level</h2>
+            <div class="chart-container">
+                <canvas id="mentalHealthChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const data = [
+            { Minggu: "Minggu 1", depression: 7, anxiety: 4, stress: 8, mood: "sad" },
+            { Minggu: "Minggu 2", depression: 6, anxiety: 5, stress: 7, mood: "neutral" },
+            { Minggu: "Minggu 3", depression: 5, anxiety: 3, stress: 6, mood: "happy" },
+            { Minggu: "Minggu 4", depression: 4, anxiety: 7, stress: 5, mood: "happy" },
+            { Minggu: "Minggu 5", depression: 3, anxiety: 2, stress: 4, mood: "neutral" },
+            { Minggu: "Minggu 6", depression: 2, anxiety: 1, stress: 3, mood: "happy" },
+        ];
+
+        function getMoodIcon(mood) {
+            switch (mood) {
+                case "sad": return "😢";
+                case "neutral": return "😐";
+                case "happy": return "😊";
+                default: return "";
+            }
+        }
+
+        function getMoodClass(mood) {
+            switch (mood) {
+                case "sad": return "mood-sad";
+                case "neutral": return "mood-neutral";
+                case "happy": return "mood-happy";
+                default: return "";
+            }
+        }
+
+        function renderMoodHistory() {
+            const moodHistoryElement = document.getElementById("moodHistory");
+            data.forEach((item) => {
+                const moodElement = document.createElement("div");
+                moodElement.className = `mood-item ${getMoodClass(item.mood)}`;
+                moodElement.innerHTML = `
+                    <span class="mood-icon">${getMoodIcon(item.mood)}</span>
+                    <span class="mood-Minggu">${item.Minggu}</span>
+                `;
+                moodHistoryElement.appendChild(moodElement);
+            });
+        }
+
+        function renderChart() {
+            const ctx = document.getElementById("mentalHealthChart").getContext("2d");
+            new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: data.map((item) => item.Minggu),
+                    datasets: [
+                        {
+                            label: "Depression",
+                            data: data.map((item) => item.depression),
+                            borderColor: "rgb(79, 70, 229)",
+                            backgroundColor: "rgba(79, 70, 229, 0.1)",
+                            tension: 0.3,
+                            fill: true,
+                        },
+                        {
+                            label: "Anxiety",
+                            data: data.map((item) => item.anxiety),
+                            borderColor: "rgb(16, 185, 129)",
+                            backgroundColor: "rgba(16, 185, 129, 0.1)",
+                            tension: 0.3,
+                            fill: true,
+                        },
+                        {
+                            label: "Stress",
+                            data: data.map((item) => item.stress),
+                            borderColor: "rgb(245, 158, 11)",
+                            backgroundColor: "rgba(245, 158, 11, 0.1)",
+                            tension: 0.3,
+                            fill: true,
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: "top",
+                        },
+                        tooltip: {
+                            mode: "index",
+                            intersect: false,
+                        },
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 10,
+                            ticks: {
+                                stepSize: 1,
+                            },
+                        },
+                    },
+                    interaction: {
+                        mode: "nearest",
+                        axis: "x",
+                        intersect: false,
+                    },
+                },
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            renderMoodHistory();
+            renderChart();
+        });
+    </script>
+</body>
+</html>

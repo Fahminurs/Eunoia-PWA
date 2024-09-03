@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breathing Exercise</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.5.1/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #3A3B7B;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 50px;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav h2 {
+            position: relative;
+            color: white;
+            left: -10px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        nav span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        nav span i {
+            margin-top: 10px;
+            display: flex;
+            color: white;
+            font-size: 40px;
+            align-items: center;
+            align-content: center;
+        }
+
+        nav a {
+            text-decoration: none;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .batas-breath {
+            width: 250px;
+            height: 250px;
+            background-color: #6A589C;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .breathing-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #BDB1E5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 4s ease-in-out, background-color 4s;
+            position: absolute;
+        }
+
+        .inner-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3A3B7B;
+            z-index: 2;
+        }
+
+        .repeat-button {
+            padding: 10px 20px;
+            background-color: #999AE7;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            max-width: 200px;
+            width: 100%;
+            position: absolute;
+            bottom: 100px;
+        }
+
+        .repeat-button:hover {
+            background-color: #bacad6;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            color: white;
+            font-size: 5rem;
+        }
+
+        .instruction {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .saturn {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 20px solid rgba(255, 255, 255, 0.2);
+            animation: rotate 10s linear infinite;
+        }
+
+        .saturn-ball {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href=""><span><i class="fi fi-rr-arrow-small-left"></i></span></a>
+        <h2>Breathing Exercise</h2>
+    </nav>
+
+    <div class="overlay" id="overlay">3</div>
+
+    <div class="instruction" id="instruction">Siap-siap</div>
+
+    <div class="container">
+        <div class="batas-breath">
+            <div class="inner-circle"><span id="timer">0</span></div>
+            <div class="breathing-circle" id="breathingCircle"></div>
+            <div class="saturn" id="saturn" style="display: none;">
+                <div class="saturn-ball"></div>
+            </div>
+        </div>
+    </div>
+
+    <button class="repeat-button" id="repeatButton">Repeat</button>
+
+    <script>
+        const breathingCircle = document.getElementById('breathingCircle');
+        const repeatButton = document.getElementById('repeatButton');
+        const timerDisplay = document.getElementById('timer');
+        const overlay = document.getElementById('overlay');
+        const instruction = document.getElementById('instruction');
+        const saturn = document.getElementById('saturn');
+        let intervalId, timerIntervalId;
+
+        const inhaleDuration = 4000;
+        const holdDuration = 7000;
+        const exhaleDuration = 8000;
+        const totalCycleDuration = inhaleDuration + holdDuration + exhaleDuration;
+
+        function formatTime(ms) {
+            return Math.ceil(ms / 1000).toString();
+        }
+
+        function updateTimer(duration) {
+            let remainingTime = duration;
+            timerDisplay.textContent = formatTime(remainingTime);
+
+            timerIntervalId = setInterval(() => {
+                remainingTime -= 1000;
+                timerDisplay.textContent = formatTime(remainingTime);
+                if (remainingTime <= 0) {
+                    clearInterval(timerIntervalId);
+                }
+            }, 1000);
+        }
+
+        function animateCircle() {
+            // Inhale
+            breathingCircle.style.transition = `transform ${inhaleDuration / 1000}s ease-in-out, background-color ${inhaleDuration / 1000}s`;
+            breathingCircle.style.transform = 'scale(2.5)';
+            breathingCircle.style.backgroundColor = '#BDB1E5';
+            instruction.textContent = "Tarik Nafas";
+            saturn.style.display = 'none';
+            clearInterval(timerIntervalId);
+            updateTimer(inhaleDuration);
+
+            // Hold
+            setTimeout(() => {
+                breathingCircle.style.transition = `background-color ${holdDuration / 1000}s`;
+                breathingCircle.style.backgroundColor = '#BDB1E5';
+                instruction.textContent = "Tahan Nafas";
+                saturn.style.display = 'block';
+                clearInterval(timerIntervalId);
+                updateTimer(holdDuration);
+            }, inhaleDuration);
+
+            // Exhale
+            setTimeout(() => {
+                breathingCircle.style.transition = `transform ${exhaleDuration / 1000}s ease-in-out, background-color ${exhaleDuration / 1000}s`;
+                breathingCircle.style.transform = 'scale(1)';
+                breathingCircle.style.backgroundColor = '#BDB1E5';
+                instruction.textContent = "Hembuskan Nafas";
+                saturn.style.display = 'none';
+                clearInterval(timerIntervalId);
+                updateTimer(exhaleDuration);
+            }, inhaleDuration + holdDuration);
+
+            // Reset
+            setTimeout(() => {
+                breathingCircle.style.transition = 'none';
+                breathingCircle.style.transform = 'scale(1)';
+                breathingCircle.style.backgroundColor = '#BDB1E5';
+                instruction.textContent = "Siap-siap";
+                clearInterval(intervalId);
+            }, totalCycleDuration);
+        }
+
+        function startAnimation() {
+            if (intervalId) {
+                clearInterval(intervalId);
+                clearInterval(timerIntervalId);
+            }
+            animateCircle();
+            intervalId = setInterval(animateCircle, totalCycleDuration);
+        }
+
+        function startOverlay() {
+            let count = 3;
+            overlay.textContent = count;
+            const countdownInterval = setInterval(() => {
+                count--;
+                if (count > 0) {
+                    overlay.textContent = count;
+                } else {
+                    clearInterval(countdownInterval);
+                    overlay.style.display = 'none';
+                    startAnimation();
+                }
+            }, 1000);
+        }
+
+        repeatButton.addEventListener('click', () => {
+            overlay.style.display = 'flex';
+            startOverlay();
+        });
+
+        // Start the overlay countdown when the page loads
+        window.onload = startOverlay;
+    </script>
+</body>
+</html>

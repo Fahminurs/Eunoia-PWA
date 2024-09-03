@@ -1,0 +1,137 @@
+/* Mavigation */
+
+.Navigation-eunoia{
+ 
+    position: fixed;
+    bottom: -20px;
+    left: 0px;
+    right: 0px;
+    z-index: 98;
+    /* width: 400px;
+    height: 60px; */
+    min-height: 61px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border-radius: 10px; */
+  
+  
+  }
+  
+  
+  .Navigation-eunoia ul{
+    display: flex;
+    /* width: 350px; */
+    /* border: 1px solid black; */
+    justify-content: space-between;
+    width:100%;
+    margin-left: -28px;
+  
+  }
+  
+  .Navigation-eunoia ul li {
+    list-style:none;
+    position: relative;
+    width: 70px;
+    height:60px ;
+    z-index: 2;
+    /* background-color: aqua; */
+  /* margin: 0 10px; */
+  
+  
+  
+  }
+  
+  
+  
+  
+  .Navigation-eunoia ul li a{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    text-decoration:none ;
+  }
+  
+  .Navigation-eunoia ul li a .icon-eunoia{
+    position: relative;
+    display: block;
+    line-height: 65px;
+    font-size: 1.5em;
+    transition: 0.5s ;
+    color: #999AE7 !important ; 
+  
+  }
+  
+  .Navigation-eunoia ul li.active a .icon-eunoia{
+  
+  transform:translateY(-32px) ;
+  color: #3A3B7B !important;
+  
+  }
+  
+  .Navigation-eunoia ul li a .text {
+    position: absolute;
+    background: #3A3B7B !important;
+    color: #fff;
+    padding: 2px 7px;
+    border-radius: 12px;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(15px);
+    display: inline-block; /* Ubah ini untuk memungkinkan lebar dinamis */
+    white-space: nowrap; /* Tambahan opsional jika ingin teks tetap pada satu baris */
+  }
+  
+  .Navigation-eunoia ul li.active a .text{
+    transform: translateY(-4px);
+    opacity: 1;
+  
+  
+  }
+  
+  .indikator-eunoia{
+    position: absolute;
+    top: -35px;
+    width: 70px;
+    height: 70px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 1;
+    transition: 0.5s;
+    left: -15px; /* Atur posisi awalnya */
+    transform: translateX(0); /* Gunakan transform untuk animasi */
+   
+  }
+  
+  .indikator-eunoia::before{
+    content: ' ';
+    position: absolute;
+    top: 5px;
+    left: -27px;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 15px 18px #fff;
+  }
+  
+  .indikator-eunoia::after{
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: -28px;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: -15px 18px #fff;
+  }
+  

@@ -1,0 +1,503 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+<title>Eunoia</title>
+<link rel="stylesheet" type="text/css" href="styles/bootstrap-eunoia.css">
+<link rel="stylesheet" type="text/css" href="styles/style-eunoia.css">
+   <!-- Nav Custom -->
+   <link rel="stylesheet" type="text/css" href="styles/styles-custom.css"> 
+   <link rel="stylesheet" type="text/css" href="styles/Footer-Eunoia.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.5.1/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+<link rel="manifest" href="_manifest.json">
+<link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+
+<style type="text/css">
+    .card-style.music img {
+    display: block;
+    margin-left: -42px;
+    max-width: 120%;
+    /* height: 140px; */
+    margin-top: -42px;
+    margin-bottom: -24px;
+}
+.card-style.music{
+    border-radius: 30px !important;
+  overflow: hidden;
+  margin: 0px 20px 0px 20px;
+  border-radius: 20px;
+  border: none;
+  border: 1px solid rgb(197, 1 95, 195) !important;
+
+  box-shadow: -1px 1px 21px -1px #dfa67d !important;
+-webkit-box-shadow: -1px 1px 21px -1px #dfa67d !important;
+-moz-box-shadow: -1px 1px 21px -1px #dfa67d !important;
+  /* background-color: aqua; */
+
+}
+
+.card-style.Dalam-kotak {
+        border: 1px solid black !important;
+        width: 150px; /* Mengatur lebar kotak */
+        height: 66px; /* Mengizinkan tinggi untuk menyesuaikan dengan isi */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        line-height: 1.2;
+        padding: 10px; /* Menambahkan padding agar ada ruang antara konten dan border */
+        text-align: center; /* Mengatur teks agar berada di tengah */
+    }
+    /* Mengatur gaya untuk teks 100% */
+    .Dalam-kotak p {
+        font-size: 24px; /* Ukuran teks 100% */
+        margin-bottom:5px; /* Menghilangkan margin bawaan */
+    }
+    /* Mengatur gaya untuk teks mood */
+    .Dalam-kotak h3 {
+        font-size: 18px; /* Ukuran teks mood */
+        margin: 0; /* Menghilangkan margin bawaan */
+    }
+
+
+    .card-style.Tingkat-Stress{
+        border: 1px solid rgb(197, 195, 195) !important;
+
+
+        box-shadow: -1px 1px 31px -13px rgba(0,0,0,0.75) !important;
+-webkit-box-shadow: -1px 1px 31px -13px rgba(0,0,0,0.75) !important;
+-moz-box-shadow: -1px 1px 31px -13px rgba(0,0,0,0.75) !important;
+
+
+  
+
+    }
+
+    .stress-level-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stress-level-top {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.stress-level-middle {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    background: #ddd;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #4CAF50;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #4CAF50;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.stress-level-bottom {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+}
+.colom1, .colom2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.rounded-box {
+    box-shadow: -1px 1px 21px -1px #dfa67d !important;
+-webkit-box-shadow: -1px 1px 21px -1px #dfa67d !important;
+-moz-box-shadow: -1px 1px 21px -1px #dfa67d !important;
+    background-color: #f0f0f0;
+    border: 1px solid rgb(197, 195, 195) !important;
+
+    border-radius: 15px;
+    padding: 15px;
+    padding-top:30px ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+
+    /* margin-bottom: 5px; */
+}
+
+.emotion-icon {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.emotion-percentage {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.emotion-label {
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+
+
+</style>
+
+
+</head>
+
+<body class="theme-light" data-highlight="highlight-red">
+
+<div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
+
+<div id="page">
+
+
+    <div class="page-title header header-fixed page-title-fixed">
+        <h1 class="Fontlogo">Eunoia</h1>
+        <a href="#" class="page-title-icon shadow-xl bg-theme color-theme show-on-theme-light" data-toggle-theme><i class="fa fa-moon"></i>  </a>
+        <a href="#" class="page-title-icon shadow-xl bg-theme color-theme show-on-theme-dark" data-toggle-theme><i class="fa fa-lightbulb color-yellow-dark"></i></a>
+        <a href="#" class="page-title-icon shadow-xl bg-theme color-theme" ><i class="fa fa-bell"></i> <span class="badge bg-highlight scale-box " style="position: absolute; ">3</span>  </a>
+        <a href="#" data-bs-toggle="dropdown" class="page-title-icon shadow-xl  color-theme" > <img src="images/Dummy/Foto Profile.png" width="43"   style="border-radius: 16px; margin-top: -3px;" alt="img">  </a>
+    </div>
+    <div class="page-title header header-fixed page-title-fixed header-auto-show">
+        <h1 class="Fontlogo">Eunoia</h1>
+        <a href="#" class="page-title-icon shadow-xl bg-theme color-theme show-on-theme-light" data-toggle-theme><i class="fa fa-moon"></i>  </a>
+        <a href="#" class="page-title-icon shadow-xl bg-theme color-theme show-on-theme-dark" data-toggle-theme><i class="fa fa-lightbulb color-yellow-dark"></i></a>
+        <a href="#" class="page-title-icon shadow-xl bg-theme color-theme" ><i class="fa fa-bell"></i> <span class="badge bg-highlight scale-box " style="position: absolute; ">3</span>  </a>
+        <a href="#" data-bs-toggle="dropdown" class="page-title-icon shadow-xl  color-theme" > <img src="images/Dummy/Foto Profile.png" width="43"   style="border-radius: 16px; margin-top: -3px;" alt="img">  </a>
+    </div>
+
+    <div class="Navigation-eunoia">
+        <ul>
+            <li class="list-eunoia active">
+                <a href="#">
+                    <span class="icon-eunoia "><i class="fi fi-sr-house-chimney"></i></span>
+                    <span class="text">Home</span>
+                </a>
+            </li>
+            <li class="list-eunoia ">
+                <a href="Explore&Care.html">
+                    <span class="icon-eunoia"><i class="fi fi-sr-sparkles"></i></span>
+                    <span class="text">Explore & Care</span>
+                </a>
+            </li>
+           <li class="list-eunoia">
+                <a href="#">
+                    <span class="icon-eunoia"><i class="fi fi-sr-comment-alt-dots"></i></span>
+                    <span class="text">Chat</span>
+                </a>
+            </li>
+
+           <li class="list-eunoia">
+                <a href="#">
+                    <span class="icon-eunoia"><i class="fi fi-sr-grip-dots"></i></span>
+                    <span class="text">Settings</span>
+                </a>
+            </li>
+
+            <div class="indikator-eunoia"></div>
+        </ul>
+
+    </div>
+
+
+
+
+    <div id="menu-colors" class="menu menu-box-bottom rounded-m" data-menu-load="menu-colors.html" data-menu-height="480"></div> 
+
+    <div class="page-title-clear"></div>
+    <div class="page-content">
+
+        
+
+        <div class="card card-style">
+            <div class="content">
+     
+                
+                <div class="splide single-slider slider-has-arrows slider-no-dots" id="single-slider-1">
+                    <div class="splide__track">
+                        <div class="splide__list">
+                            <!-- <div class="splide__slide mx-3">
+                                <div data-card-height="100" class="card bg-5 mb-0 rounded-m shadow-l">
+                                    <div class="card-bottom text-center mb-3">
+                                        <h2 class="color-white text-uppercase font-900 mb-0">Splendid Simplicity</h2>
+                                        <p class="under-heading color-white">A new generation of Mobile Kits.</p>
+                                    </div>
+                                    <div class="card-overlay bg-gradient"></div>
+                                </div>
+                            </div> -->
+                            <div class="splide__slide mx-3">
+                                <div data-card-height="200" class="card Slide-Eunoia-1 mb-0 rounded-m shadow-l">
+                                    <!-- <div class="card-bottom text-center mb-3">
+                                        <h2 class="color-white text-uppercase font-900 mb-0">Top Notch Quality</h2>
+                                        <p class="under-heading color-white">Flexibility, Speed, Ease of Use.</p>
+                                    </div> -->
+                                    <!-- <div class="card-overlay bg-gradient"></div> -->
+                                </div>
+                            </div>
+                            <!-- <div class="splide__slide mx-3">
+                                <div data-card-height="300" class="card bg-9 mb-0 rounded-m shadow-l">
+                                    <div class="card-bottom text-center mb-3">
+                                        <h2 class="color-white text-uppercase font-900 mb-0">Perfectly Organized</h2>
+                                        <p class="under-heading color-white">Mobile Website, or App or PWA Ready.</p>
+                                    </div>
+                                    <div class="card-overlay bg-gradient"></div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>   
+                
+            </div>
+        </div>   
+
+
+        <div class="card card-style music shadow-xl mb-3">
+            <div class="content">
+                <img src="images/Dummy/Music.png" width="700"  alt="">
+                
+
+            </div>
+        </div>
+        <div style="margin: 30px;"></div>
+        <div class="card card-style ">
+            <div class="content">
+                <h5 class="font-14 ">Kondisi Mentalmu Sekarang <a href="#" class="float-end color-pink-dark">Lihat Semua</a></h5>
+                <div class="divider mb-3"></div>
+
+                <div class="card card-style Tingkat-Stress shadow-xl mb-3" >
+                    <div class="content ">
+                        <!-- <div class="card mx-0 card-style" data-card-height="190"> -->
+                            <!-- <div class="content"> -->
+        
+                                <div class="mb-4">
+                                    <h5>Depresi<span class="opacity-30 float-end">Rendah</span></h5>
+                                    <div class="progress" style="height:8px;">
+                                        <div class="progress-bar border-0 bg-green-dark text-start ps-2" 
+                                             role="progressbar" style="width: 30%" 
+                                             aria-valuenow="10" aria-valuemin="0" 
+                                             aria-valuemax="100">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <h5>Anxiety<span class="opacity-30 float-end">Menengah</span></h5>
+                                    <div class="progress" style="height:8px;">
+                                        <div class="progress-bar border-0 bg-yellow-dark text-start ps-2" 
+                                             role="progressbar" style="width: 70%" 
+                                             aria-valuenow="10" aria-valuemin="0" 
+                                             aria-valuemax="100">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <h5>Stresss<span class="opacity-30 float-end">Tinggi</span></h5>
+                                    <div class="progress" style="height:8px;">
+                                        <div class="progress-bar border-0 bg-red-dark text-start ps-2" 
+                                             role="progressbar" style="width: 90%" 
+                                             aria-valuenow="10" aria-valuemin="0" 
+                                             aria-valuemax="100">
+                                        </div>
+                                    </div>
+                                </div>                    
+                            <!-- </div> -->
+                        <!-- </div> -->
+                    </div>
+                </div>
+                <div class="card card-style Tingkat-Stress shadow-xl mb-3" >
+                    <div class="content text-center">
+                        <div class="stress-level-top" style="color:black ;">
+                            Mood
+                        </div>
+                        <div class="stress-level-middle">
+                            <div class="row">
+                                <div class="colom1">
+                                    <div class="col rounded-box">
+                                        <div class="emotion-icon">
+                                            😁
+                                        </div>
+                                        <div class="emotion-percentage">
+                                            10%
+                                        </div>
+                                    </div>
+                                    <span class="emotion-label">Senang</span>
+                                </div>
+                                <div class="colom2">
+                                    <div class="col rounded-box">
+                                        <div class="emotion-icon">
+                                            😢
+                                        </div>
+                                        <div class="emotion-percentage">
+                                            30%
+                                        </div>
+                                    </div>
+                                    <span class="emotion-label">Sedih</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card card-style">
+            <div class="content">
+                <h5 class="font-14 ">Bookmark <a href="Chatbot-Ai.html" class="float-end color-pink-dark">Lihat Semua</a></h5>
+
+                <div class="divider mb-3"></div>
+                <table class="table table-borderless text-center rounded-sm shadow-l" style="overflow: hidden;">
+                    <thead>
+                        <tr style="background-color: #b39cd0;">
+                            <th scope="col" class="color-white py-3 font-14">NO</th>
+                            <th scope="col" class="color-white py-3 font-14">Judul</th>
+                            <th scope="col" class="color-white py-3 font-14">Waktu Akses</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Artikel Teknologi</td>
+                            <td>12:30 PM, 10 Aug 2024</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Berita Olahraga</td>
+                            <td>02:15 PM, 09 Aug 2024</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Tips Kesehatan</td>
+                            <td>09:00 AM, 08 Aug 2024</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </div>
+    <!-- End of Page Content-->
+    <!-- All Menus, Action Sheets, Modals, Notifications, Toasts, Snackbars get Placed outside the <div class="page-content"> -->
+
+    <!-- Menu Share -->
+    <div id="menu-share" class="menu menu-box-bottom menu-box-detached">
+        <div class="menu-title mt-n1"><h1>Share the Love</h1><p class="color-highlight">Just Tap the Social Icon. We'll add the Link</p><a href="#" class="close-menu"><i class="fa fa-times"></i></a></div>
+        <div class="content mb-0">
+            <div class="divider mb-0"></div>
+            <div class="list-group list-custom-small list-icon-0">
+                <a href="auto_generated" class="shareToFacebook external-link">
+                    <i class="font-18 fab fa-facebook-square color-facebook"></i>
+                    <span class="font-13">Facebook</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                <a href="auto_generated" class="shareToTwitter external-link">
+                    <i class="font-18 fab fa-twitter-square color-twitter"></i>
+                    <span class="font-13">Twitter</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                <a href="auto_generated" class="shareToLinkedIn external-link">
+                    <i class="font-18 fab fa-linkedin color-linkedin"></i>
+                    <span class="font-13">LinkedIn</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                <a href="auto_generated" class="shareToWhatsApp external-link">
+                    <i class="font-18 fab fa-whatsapp-square color-whatsapp"></i>
+                    <span class="font-13">WhatsApp</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                <a href="auto_generated" class="shareToMail external-link border-0">
+                    <i class="font-18 fa fa-envelope-square color-mail"></i>
+                    <span class="font-13">Email</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Be sure this is on your main visiting page, for example, the index.html page-->
+    <!-- Install Prompt for Android -->
+    <div id="menu-install-pwa-android" class="menu menu-box-bottom rounded-m">
+        <img class="mx-auto mt-4 rounded-m" src="app/icons/icon-128x128.png" alt="img" width="90">
+        <h4 class="text-center mt-4 mb-2">Appkit on your Home Screen</h4>
+        <p class="text-center boxed-text-xl">
+            Install Appkit on your home screen, and access it just like a regular app. It really is that simple!
+        </p>
+        <div class="boxed-text-l">
+            <a href="#" class="pwa-install mx-auto btn btn-m font-600 bg-highlight">Add to Home Screen</a>
+            <a href="#" class="pwa-dismiss close-menu btn-full mt-3 pt-2 text-center text-uppercase font-600 color-red-light font-12 pb-4 mb-3">Maybe later</a>
+        </div>
+    </div>
+
+    <!-- Install instructions for iOS -->
+    <div id="menu-install-pwa-ios" class="menu menu-box-bottom rounded-m">
+        <div class="boxed-text-xl top-25">
+            <img class="mx-auto mt-4 rounded-m" src="app/icons/icon-128x128.png" alt="img" width="90">
+            <h4 class="text-center mt-4 mb-2">Appkit on your Home Screen</h4>
+            <p class="text-center ms-3 me-3">
+                Install Appkit on your home screen, and access it just like a regular app. Open your Safari menu and tap "Add to Home Screen".
+            </p>
+            <a href="#" class="pwa-dismiss close-menu btn-full mt-3 text-center text-uppercase font-700 color-red-light opacity-90 font-110 pb-5">Maybe later</a>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="scripts/custom.js"></script>
+<script type="text/javascript" src="scripts/Footer-Eunoia.js"></script>
+</body>
+</body>

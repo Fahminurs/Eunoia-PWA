@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover"
+    />
+    <title>Konsultasi</title>
+    <!-- Back Icon CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.5.1/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap-eunoia.css" />
+    <link rel="stylesheet" type="text/css" href="styles/style-eunoia.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="fonts/css/fontawesome-all.min.css"
+    />
+    <link
+      rel="manifest"
+      href="_manifest.json"
+      data-pwa-version="set_in_manifest_and_pwa_js"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="app/icons/icon-192x192.png"
+    />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Playwrite+ID:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+      body {
+        background-color: #999ae7;
+        font-family: "poppins", sans-serif !important;
+      }
+
+
+      nav {
+      
+        background-color: #ffffff;
+        width: 100%;
+        height: 50px;
+        z-index: 999999;
+        box-shadow: 1px 1px 20px 8px rgba(0, 0, 0, 0.49);
+        -webkit-box-shadow: 1px 1px 20px 8px rgba(0, 0, 0, 0.49);
+        -moz-box-shadow: 1px 1px 20px 8px rgba(0, 0, 0, 0.49);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      nav h2 {
+        position: relative;
+        color: #999ae7;
+        top: 2.5px;
+        left: -10px;
+        font-size: 20px;
+        font-weight: 800;
+      }
+
+      nav span {
+        display: flex;
+        align-items: center;
+        /* Menempatkan icon arrow di tengah vertikal */
+        justify-content: center;
+        margin-left: 10px;
+        /* Tambahkan margin untuk memberi jarak dari tepi */
+        margin-right: 10px;
+      }
+
+      nav span i {
+        display: flex;
+        color: black;
+        font-size: 30px;
+        align-items: center;
+        align-content: center;
+      }
+
+      nav span .fi.fi-bs-search {
+        font-size: 20px;
+      }
+
+      nav a {
+        text-decoration: none;
+      }
+
+      .theme-light .bg-theme {
+        background-color: #3a3b7b !important;
+      }
+      .fa-moon {
+        position: relative;
+        top: -4px !important;
+        left: 1px !important;
+        color: white;
+      }
+      .fi-rr-arrow-small-left{
+        color: #999ae7;
+      }
+      .page-title-icon {
+  height: 30px;
+  width: 30px;
+}
+
+.header {
+  background-color: #3a3b7b;
+  height: 25px !important;
+  width: 250px;
+  margin: 0 10px 0 40px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  left: -100px !important;
+
+
+}
+.header .header-title {
+  position: absolute;
+  height: -55px;
+  /* left: 20px; */
+  line-height: 29px;
+  font-size: 10px;
+  color: #ffffff;
+  font-weight: 600;
+  z-index: 1;
+  top: -2px;
+  font-family: "poppins", sans-serif;
+
+}
+.header-logo-center .header-title {
+        width: auto;
+    /* background-color: #ffffff; */
+    left: 30%;
+        margin-left: 0;
+        /* text-align: center; */
+        /* justify-content: center; */
+      }
+
+#footer-bar {
+        background-color: #ffffff;
+      }
+
+      .form-control {
+        font-family: "poppins", sans-serif !important;
+        background-color: #3a3b7b;
+        color: white !important;
+        font-size: 12px !important;
+      }
+
+      .form-control:focus {
+        color: #212529;
+        background-color: #3a3b7b;
+        border-color: #ffffff !important;
+        border: 2px solid white !important;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        font-size: 13px !important;
+      }
+
+      .form-control::placeholder {
+        font-family: "poppins", sans-serif !important;
+        color: #ffffff;
+        opacity: 1;
+        font-size: 12px !important;
+      }
+
+      .theme-light .bg-theme {
+        background-color: #999ae7 !important;
+      }
+
+      
+      .bg-button-chatbot {
+          background-color: #999ae7;
+        }
+        
+        .bg-button-chatbot1 {
+        background-color: #3a3b7b;
+            
+      }
+
+      .fa-plus{
+        color: white;
+      }
+
+
+      .speech-left {
+        color: #ffff !important ;
+        font-size: 13px;
+      }
+
+      .bg-chat-eunoia {
+        background-color: #3a3b7b;
+      }
+      .bg1-chat-eunoia {
+        background-color: #904788;
+      }
+    </style>
+  </head>
+
+  <body class="theme-light">
+    <div id="preloader">
+      <div class="spinner-border color-highlight" role="status"></div>
+    </div>
+
+    <div id="page">
+      <div class="header header-fixed header-logo-center header-auto-show">
+        <a href="index.html" class="header-title"
+          >Dr. Jane Louder, M.Psi., Psikolog</a
+        >
+      </div>
+
+      <div id="footer-bar" class="d-flex">
+        <div class="me-3 speach-icon">
+          <a href="#" data-menu="menu-upload" class="bg-button-chatbot1 ms-2"
+            ><i class="fa fa-plus pt-2"></i
+          ></a>
+        </div>
+        <div class="flex-fill speach-input">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter your Message here"
+          />
+        </div>
+        <div class="ms-3 speach-icon">
+          <a href="#" class="bg-button-chatbot color-white me-2"
+            ><i class="fa fa-arrow-up pt-2"></i
+          ></a>
+        </div>
+      </div>
+
+      <nav>
+        <a href=""
+          ><span><i class="fi fi-rr-arrow-small-left"></i></span
+        ></a>
+        <h2>Konsultasi</h2>
+        <a
+          href="#"
+          class="page-title-icon shadow-xl bg-theme color-theme show-on-theme-light"
+          data-toggle-theme
+          ><i class="fa fa-moon"></i
+        ></a>
+        <a
+          href="#"
+          class="page-title-icon shadow-xl bg-theme color-theme show-on-theme-dark"
+          data-toggle-theme
+          ><i class="fa fa-lightbulb color-yellow-dark"></i
+        ></a>
+      </nav>
+
+      <div class="page-title-clear"></div>
+
+      <div class="page-content">
+        <div class="content mt-0 mb-n5">
+          <!-- Percakapan dimulai -->
+          <div class="speech-bubble speech-right bg1-chat-eunoia color-white">
+            Dok, saya akhir-akhir ini sering tidak bisa tidur ketika malam hari. Apa yang harus saya lakukan?
+          </div>
+          <div class="clearfix"></div>
+      
+          <div class="speech-bubble speech-left bg-chat-eunoia">
+            Apakah ada pikiran tertentu yang sering muncul ketika Anda berusaha tidur?
+          </div>
+          <div class="clearfix"></div>
+      
+          <div class="speech-bubble speech-right bg1-chat-eunoia color-white">
+            Ya, saya sering khawatir tentang pekerjaan dan merasa cemas tanpa alasan yang jelas.
+          </div>
+          <div class="clearfix"></div>
+      
+          <div class="speech-bubble speech-left bg-chat-eunoia">
+            Itu hal yang cukup umum. Banyak orang mengalami kesulitan tidur ketika mereka merasa cemas. Apakah Anda pernah mencoba teknik relaksasi sebelum tidur?
+          </div>
+          <div class="clearfix"></div>
+      
+          <p class="text-center mb-0 font-11">Kemarin, 1:45 AM</p>
+      
+          <div class="speech-bubble speech-right bg1-chat-eunoia color-white">
+            Saya pernah mencoba, tapi tidak selalu berhasil. Kadang-kadang saya tetap terjaga meski sudah mencoba relaksasi.
+          </div>
+          <div class="clearfix"></div>
+      
+          <div class="speech-bubble speech-left bg-chat-eunoia">
+            Memang tidak semua teknik berhasil pada setiap orang. Bagaimana dengan rutinitas tidur Anda? Apakah Anda biasanya tidur dan bangun pada waktu yang sama setiap hari?
+          </div>
+          <div class="clearfix"></div>
+      
+          <p class="text-center mb-0 font-11">25 Menit Lalu</p>
+      
+          <div class="speech-bubble speech-right bg1-chat-eunoia color-white">
+            Tidak selalu, jadwal tidur saya kadang berubah-ubah, terutama saat akhir pekan.
+          </div>
+          <div class="clearfix"></div>
+      
+          <div class="speech-bubble speech-left bg-chat-eunoia">
+            Konsistensi dalam waktu tidur bisa sangat membantu. Cobalah untuk menetapkan rutinitas tidur yang tetap dan hindari kafein atau layar elektronik sebelum tidur.
+          </div>
+          <div class="clearfix"></div>
+      
+          <div class="speech-bubble speech-right bg1-chat-eunoia color-white">
+            Terima kasih, Dok. Saya akan coba mengikuti saran ini.
+          </div>
+          <div class="clearfix"></div>
+      
+          <em class="speech-read mb-4">Pesan Terkirim & Dibaca - 07:18 PM</em>
+        </div>
+      </div>
+      
+      <!-- Page content ends here-->
+
+      <div
+        id="menu-upload"
+        class="menu menu-box-bottom rounded-m"
+        data-menu-height="275"
+        data-menu-effect="menu-over"
+      >
+        <div class="list-group list-custom-small ps-2 me-4">
+          <a href="#">
+            <i class="font-14 fa fa-file color-gray2-dark"></i>
+            <span class="font-13">File</span>
+            <i class="fa fa-angle-right"></i>
+          </a>
+          <a href="#">
+            <i class="font-14 fa fa-image color-gray2-dark"></i>
+            <span class="font-13">Photo</span>
+            <i class="fa fa-angle-right"></i>
+          </a>
+          <a href="#">
+            <i class="font-14 fa fa-video color-gray2-dark"></i>
+            <span class="font-13">Video</span>
+            <i class="fa fa-angle-right"></i>
+          </a>
+          <a href="#">
+            <i class="font-14 fa fa-user color-gray2-dark"></i>
+            <span class="font-13">Camera</span>
+            <i class="fa fa-angle-right"></i>
+          </a>
+     
+        </div>
+      </div>
+
+      <!-- Main Menu-->
+      <div
+        id="menu-main"
+        class="menu menu-box-left rounded-0"
+        data-menu-load="menu-main.html"
+        data-menu-width="280"
+        data-menu-active="nav-pages"
+      ></div>
+
+      <!-- Share Menu-->
+      <div
+        id="menu-share"
+        class="menu menu-box-bottom rounded-m"
+        data-menu-load="menu-share.html"
+        data-menu-height="370"
+      ></div>
+
+      <!-- Colors Menu-->
+      <div
+        id="menu-colors"
+        class="menu menu-box-bottom rounded-m"
+        data-menu-load="menu-colors.html"
+        data-menu-height="480"
+      ></div>
+    </div>
+
+    <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/custom.js"></script>
+  </body>
+</html>

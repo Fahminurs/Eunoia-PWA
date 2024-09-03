@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>Eunoia</title>
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sankofa+Display&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+    <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+    <link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+
+        }
+
+        body {
+            background:
+                radial-gradient(circle, #d6d0d0 10%, transparent 2%) 0% 0% / 3em 3em,
+                radial-gradient(circle, #e3a5c7, #c78db8, #aa77aa, #8a629c, #694f8e);
+            background-blend-mode: color-burn;
+            background-size: 58px 58px, cover;
+            /* Ukuran dot dan gradient */
+
+        }
+
+        .input-style.has-borders textarea {
+            height: 188px;
+        }
+
+        textarea {
+            border-color: black !important;
+            resize: none;
+
+        }
+
+        .color-Deksripsimedis {
+            color: #694f8e;
+        }
+
+
+        .color-button-Eunoai {
+            background-image: linear-gradient(to right top, #9c6dd4, #9768d2, #8865ce, #7863ca, #6860c5, #575dc0);
+
+
+        }
+
+        .h1-color {
+            color: #ff9271;
+
+        }
+
+        @media (min-width : 1281px) {
+            .card-style {
+                margin: 0px 300px 37px 300px;
+            }
+        }
+    </style>
+</head>
+
+<body class="theme-light">
+
+    <div id="preloader">
+        <div class="spinner-border color-highlight" role="status"></div>
+    </div>
+
+    <div id="page">
+
+
+        <div class="page-title-clear"></div>
+
+        <div class="page-content">
+
+            <div class="card card-style">
+                <div class="content">
+                    <p class="mb-n1 color-Deksripsimedis font-600">Ceritakan kesehatan Mental Anda</p>
+                    <h1 class="h1-color">Deskripsi Medis</h1>
+                    <p>
+                        Di sini, Anda dapat menjelaskan secara rinci tentang kondisi kesehatan Mental Anda, gejala yang
+                        Anda alami, dan perasaan Anda sehari-hari.
+                    </p>
+                    <div class="input-style has-borders no-icon mb-4">
+                        <textarea id="form7" placeholder="Ceritakan Gejala disini ..."></textarea>
+                        <label for="form7" class="color-highlight">Ceritakan Gejala disini ...</label>
+                    </div>
+
+                    <p class="font-10 text-center ">Ada yang lupa? Tenang Anda dapat memperbarui Deskripsi Medis Anda
+                        kapan saja Anda mau.</p>
+                    <form action="">
+                        <a href="#"
+                            class='btn btn-full btn-m font-13 font-600 rounded-sm color-button-Eunoai'>Submit</a>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <!-- Page content ends here-->
+
+
+    </div>
+
+    <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/custom.js"></script>
+</body>

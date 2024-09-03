@@ -1,0 +1,465 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+<title>Eunoia</title>
+<link rel="stylesheet" type="text/css" href="styles/bootstrap-eunoia.css">
+<link rel="stylesheet" type="text/css" href="styles/style-eunoia.css">
+   <!-- Nav Custom -->
+   <link rel="stylesheet" type="text/css" href="styles/styles-custom.css"> 
+   <link rel="stylesheet" type="text/css" href="styles/Footer-Eunoia.css">
+       <!-- Back Icon CDN -->
+       <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.5.1/uicons-regular-rounded/css/uicons-regular-rounded.css" />
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.5.1/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+<link rel="manifest" href="_manifest.json">
+<link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+    <style >
+                .fa-moon{
+                color:#3A3B7B ;
+            }
+            .fa-bell{
+                color:#3A3B7B ;
+
+            }
+            .logo-nav-eunoia{
+                position: relative;
+                left: 20px !important;
+            }
+        .poppins-medium-eunoia {
+              font-family: "Poppins", sans-serif;
+              font-weight: 500;
+              font-style: normal;
+              font-size: 13px;
+              
+          }
+          .poppins-semibold {
+          font-family: "Poppins", sans-serif;
+          font-weight: 600;
+          font-style: normal;
+        }
+          body {
+            background-image: url(../assets/img/Bg\ Eunoai.png); /* Replace #yourColorCode with the desired color code */
+          }
+          .card-style.music img {
+            display: block;
+            margin-left: -42px;
+            max-width: 120%;
+            /* height: 140px; */
+            margin-top: -42px;
+            margin-bottom: -24px;
+          }
+          .card-style.music {
+            border-radius: 30px !important;
+            overflow: hidden;
+            margin: 0px 20px 0px 20px;
+            border-radius: 20px;
+            border: none;
+            border: 1px solid rgb(197, 1 95, 195) !important;
+    
+            box-shadow: -1px 1px 21px -1px #dfa67d !important;
+            -webkit-box-shadow: -1px 1px 21px -1px #dfa67d !important;
+            -moz-box-shadow: -1px 1px 21px -1px #dfa67d !important;
+            /* background-color: aqua; */
+          }
+    
+          .card-style.Dalam-kotak {
+            border: 1px solid black !important;
+            width: 150px; /* Mengatur lebar kotak */
+            height: 66px; /* Mengizinkan tinggi untuk menyesuaikan dengan isi */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            line-height: 1.2;
+            padding: 10px; /* Menambahkan padding agar ada ruang antara konten dan border */
+            text-align: center; /* Mengatur teks agar berada di tengah */
+          }
+          /* Mengatur gaya untuk teks 100% */
+          .Dalam-kotak p {
+            font-size: 24px; /* Ukuran teks 100% */
+            margin-bottom: 5px; /* Menghilangkan margin bawaan */
+          }
+          /* Mengatur gaya untuk teks mood */
+          .Dalam-kotak h3 {
+            font-size: 18px; /* Ukuran teks mood */
+            margin: 0; /* Menghilangkan margin bawaan */
+          }
+    
+          .card-style.Tingkat-Stress {
+            border: 1px solid rgb(197, 195, 195) !important;
+            background-color: #999AE7;
+            
+          }
+    
+          .stress-level-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f3f3f3;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+    
+          .stress-level-top {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+          }
+    
+          .stress-level-middle {
+            width: 100%;
+            margin-bottom: 20px;
+          }
+    
+          .slider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 10px;
+            background: #ddd;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+          }
+    
+          .slider:hover {
+            opacity: 1;
+          }
+    
+          .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #4caf50;
+            cursor: pointer;
+            border-radius: 50%;
+          }
+    
+          .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #4caf50;
+            cursor: pointer;
+            border-radius: 50%;
+          }
+    
+          .stress-level-bottom {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            font-size: 14px;
+            font-weight: bold;
+          }
+          .colom1,
+          .colom2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+          }
+    
+          .rounded-box {
+          
+            background-color: #f0f0f0;
+            border: 1px solid rgb(197, 195, 195) !important;
+    
+            border-radius: 10px;
+            padding-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 83px;
+            height: 100px ;
+    
+            /* margin-bottom: 5px; */
+          }
+          .rounded-box img{
+            position: relative;
+            top: 15px;
+          }
+    
+          .emotion-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
+          }
+    
+          .emotion-percentage {
+            position: relative;
+            bottom: -10px;
+            right: -5px;
+            font-size: 16px;
+            font-weight: bold;
+          }
+    
+          .emotion-label {
+            color: black;
+            font-size: 14px;
+            font-weight: bold;
+          }
+          h5 {
+        color: white;
+          }
+          .header-container {  
+      display: flex;  
+      justify-content: space-between;  
+      align-items: center;  
+    }  
+    
+    .title {  
+      font-size: 16px;  
+      color: #333;  
+      margin: 0;  
+    }  
+    
+    .see-all {  
+      background-color: #999AE7;  
+      color: #ffffff;  
+      padding: 6px 7px;  
+      border-radius: 5px;  
+      font-size: 14px;  
+      text-decoration: none;  
+      display: flex;  
+      width: 100px;
+      align-items: center;  
+      justify-content: center;
+    } 
+    .see-all:hover{
+        color: #f1d5ed;
+    }
+
+    .fi-rr-arrow-right{ 
+        margin: 5px; 
+        position: relative;
+        top: 2px;
+        right: -4px;
+    }
+    
+
+    .font-logo {  
+                background-image: url('./images/logo-eunoia.png');  
+                background-size: contain;  
+                background-repeat: no-repeat;  
+                background-position: center;  
+                width: 100px;  
+                height: 40px;  
+            }
+
+            .depresi-bar{
+            background-color: #45FB57;
+        } 
+        .Axiety-bar{
+                background-color: #FFE253;
+                
+            } 
+            .Stres-bar{
+                background-color: #FF1B1B;
+                
+            }
+
+            .senang-emot{
+                font-family: 'poppins', sans-serif;
+                position: relative;
+                bottom: -10px;
+                right: -2px;
+                font-size: 15px !important;
+                font-weight: 600 !important; 
+                color: #3A3B7B;
+            }
+            .sedih-emot{
+                font-family: 'poppins', sans-serif;
+                position: relative;
+                bottom: -10px;
+                right: -2px;
+                font-size: 15px !important;
+                font-weight: 600 !important; 
+                color: #3A3B7B;
+            }
+
+            .emotion-label{
+                margin: 5px;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: 1px;
+            }
+    
+    </style>
+</head>
+
+
+<body class="theme-light" data-highlight="highlight-red">
+
+
+    <div id="page">
+
+
+      <div class="page-title header header-fixed page-title-fixed" style="background-color: white;">
+    <div class="logo-nav-eunoia">
+        <img src="/images/Logo/Logo-nav.png" width="30" alt="">
+    </div>
+       
+        <a
+          href="#"
+          class="page-title-icon shadow-xl  color-theme show-on-theme-light"
+          data-toggle-theme
+          ><i class="fa fa-moon"></i>
+        </a>
+            <a href="#" class="page-title-icon shadow-xl bg-theme color-theme show-on-theme-dark" data-toggle-theme><i class="fa fa-lightbulb color-yellow-dark"></i
+        ></a>
+            <a href="#" class="page-title-icon shadow-xl  color-theme"><i class="fa fa-bell"></i>
+          <span class="badge bg-highlight scale-box" style="position: absolute"
+            >3</span
+          >
+        </a>
+            <a href="#" data-bs-toggle="dropdown" class="page-title-icon foto-profile shadow-xl color-theme" >
+                <img src="images/Dummy/Foto Profile.png" width="40" style="border-radius: 50%; border: 2px solid black;" alt="img" />
+
+            </a>
+        </div>
+
+
+        <div id="menu-colors" class="menu menu-box-bottom rounded-m" data-menu-load="menu-colors.html" data-menu-height="480"></div>
+
+        <div class="page-title-clear"></div>
+        <div class="page-content">
+            <div class="card card-style">
+                <div class="content">
+                    <div class="splide single-slider slider-has-arrows slider-no-dots" id="single-slider-1">
+                        <div class="splide__track">
+                            <div class="splide__list">
+
+                                <div class="splide__slide mx-3">
+                                    <div data-card-height="200" class="card Slide-Eunoia-1 mb-0 rounded-m shadow-l">
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin: 30px"></div>
+            <div class="card card-style">
+                <div class="content">
+                    <div class="header-container">
+                        <h4 class="title" style="color: #3A3B7B; font-size: 20px !important; line-height: 1.5;">Kondisi Mentalmu Sekarang</h4>
+                        <a href="See-all.html" class="see-all" >See all <span><i class="fi fi-rr-arrow-right"></i></span> </a>
+    
+
+                    </div>
+                    <br>
+
+
+                    <div class="card card-style Tingkat-Stress shadow-xl mb-3">
+                        <div class="content">
+                            <!-- <div class="card mx-0 card-style" data-card-height="190"> -->
+                            <!-- <div class="content"> -->
+
+                            <div class="mb-4">
+                                <h5 style="font-weight: 500; font-size: 16px; letter-spacing: 1px;">
+                    Depresi<span class="float-end poppins-medium-eunoia">Rendah</span>
+                  </h5>
+                                <div class="progress" style="height: 8px">
+                                    <div class="progress-bar border-0 depresi-bar text-start ps-2" role="progressbar" style="width: 30%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <h5 style="font-weight: 500; font-size: 16px; letter-spacing: 1px;">
+                    Anxiety<span class=" float-end poppins-medium-eunoia" >Menengah</span>
+                  </h5>
+                                <div class="progress" style="height: 8px">
+                                    <div class="progress-bar border-0 Axiety-bar text-start ps-2" role="progressbar" style="width: 70%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <h5 style="font-weight: 500; font-size: 16px; letter-spacing: 1px;">
+                    Stress<span class=" float-end poppins-medium-eunoia" >Tinggi</span>
+                  </h5>
+                                <div class="progress" style="height: 8px">
+                                    <div class="progress-bar border-0 Stres-bar text-start ps-2" role="progressbar" style="width: 90%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                    <div class="card card-style Tingkat-Stress shadow-xl mb-3">
+                        <div class="content text-center">
+                            <div class="stress-level-top" ><h2 style="color: white ; letter-spacing: 1px; font-weight: 600; font-size: 18px;">Mood</h2></div>
+                            <div class="stress-level-middle">
+                                <div class="row">
+                                    <div class="colom1">
+                                        <div class="col rounded-box">
+                                            <div class="emotion-icon"><img src="images/Home/Senang.png" width="50" height="50" alt=""></div>
+                                            <div class="senang-emot">10%</div>
+                                        </div>
+                                        <span class="emotion-label" style="color: white">Senang</span>
+                                    </div>
+                                    <div class="colom2">
+                                        <div class="col rounded-box">
+                                            <div class="emotion-icon"><img src="images/Home/Sedih.png" width="50" height="50" alt=""></div>
+                                            <div class="sedih-emot">30%</div>
+                                        </div>
+                                        <span class="emotion-label" style="color: white">Sedih</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="Navigation-eunoia">
+                <ul>
+                    <li class="list-eunoia active">
+                        <a href="Home.html">
+                            <span class="icon-eunoia "><i class="fi fi-sr-house-chimney"></i></span>
+                            <span class="text">Home</span>
+                        </a>
+                    </li>
+                    <li class="list-eunoia ">
+                        <a href="Explore&Care.html">
+                            <span class="icon-eunoia"><i class="fi fi-sr-sparkles"></i></span>
+                            <span class="text" >Explore & Care</span>
+                        </a>
+                    </li>
+                   <li class="list-eunoia">
+                        <a href="History-Chat.html">
+                            <span class="icon-eunoia"><i class="fi fi-sr-comment-alt-dots"></i></span>
+                            <span class="text">Chat</span>
+                        </a>
+                    </li>
+        
+                   <li class="list-eunoia">
+                        <a href="#">
+                            <span class="icon-eunoia"><i class="fi fi-sr-grip-dots"></i></span>
+                            <span class="text">Settings</span>
+                        </a>
+                    </li>
+        
+                    <div class="indikator-eunoia"></div>
+                </ul>
+        
+            </div>
+           
+    </div>
+
+    <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/custom1.js"></script>
+    <script type="text/javascript" src="scripts/Footer-Eunoia.js"></script>
+  </body>
+</html>

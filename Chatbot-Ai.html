@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover"
+    />
+    <title>AppKit Mobile</title>
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap-eunoia.css" />
+    <link rel="stylesheet" type="text/css" href="styles/style-eunoia.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="fonts/css/fontawesome-all.min.css"
+    />
+    <!-- Back Icon CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.5.1/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+    <link
+      rel="manifest"
+      href="_manifest.json"
+      data-pwa-version="set_in_manifest_and_pwa_js"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="app/icons/icon-192x192.png"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Playwrite+ID:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+      body {
+        background-color: #3a3b7b;
+        font-family: "poppins", sans-serif;
+      }
+
+      .speech-bubble-eunoia {
+        position: relative;
+        border-radius: 1.5rem !important;
+        padding: 10px 15px;
+        margin-bottom: 15px;
+        line-height: 22px;
+        font-size: 13px;
+        background-color: #dee2e6;
+        overflow: hidden;
+      }
+      .speech-bubble-eunoia:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+
+      .kotak-suara {
+        margin: 30px 0 30px 0;
+
+        width: 100%;
+        height: 100%;
+      }
+      .kotak-suara h3 {
+        background-color: #ffffff;
+        padding: 1px;
+        width: 100px;
+        border-radius: 7px;
+        font-size: 15px;
+        display: flex;
+        justify-content: center; /* Mengatur teks agar berada di tengah secara horizontal */
+        align-items: center; /* Mengatur teks agar berada di tengah secara vertikal */
+        height: 40px; /* Sesuaikan tinggi agar konten bisa di tengah */
+      }
+      .kotak-suara p {
+        color: rgb(255, 255, 255);
+        font-size: 13px !important;
+        font-weight: 500;
+      }
+
+      .kotak-suara h3 {
+        color: #3a3b7b !important ;
+        font-weight: 700;
+      }
+
+      .bg-chat-eunoia {
+        background-color: #999ae7;
+      }
+      .speech-left {
+        color: #ffff !important ;
+        font-size: 13px;
+      }
+
+      .bg-button-chatbot {
+        background-color: #3a3b7b;
+      }
+
+      #footer-bar {
+        background-color: #ffffff;
+      }
+
+      .form-control {
+        font-family: "poppins", sans-serif !important;
+        background-color: #999ae7;
+        color: white !important;
+        font-size: 12px !important;
+      }
+
+      .form-control:focus {
+        color: #212529;
+        background-color: #999ae7;
+        border-color: #ffffff !important;
+        border: 2px solid white !important;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        font-size: 13px !important;
+      }
+
+      .form-control::placeholder {
+        font-family: "poppins", sans-serif !important;
+        color: #ffffff;
+        opacity: 1;
+        font-size: 12px !important;
+      }
+
+      .theme-light .bg-theme {
+        background-color: #3a3b7b !important;
+      }
+      .fa-moon {
+        position: relative;
+        top: -4px !important;
+        left: 1px !important;
+        color: white;
+      }
+      .fi-rr-arrow-small-left{
+        color: #3a3b7b;
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        background-color: #ffffff;
+        width: 100%;
+        height: 50px;
+        z-index: 999999;
+        box-shadow: 1px 1px 20px 8px rgba(0, 0, 0, 0.49);
+        -webkit-box-shadow: 1px 1px 20px 8px rgba(0, 0, 0, 0.49);
+        -moz-box-shadow: 1px 1px 20px 8px rgba(0, 0, 0, 0.49);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      nav h2 {
+        position: relative;
+        color: #3a3b7b;
+        top: 2.5px;
+        left: -10px;
+        font-size: 20px;
+        font-weight: 800;
+      }
+
+      nav span {
+        display: flex;
+        align-items: center;
+        /* Menempatkan icon arrow di tengah vertikal */
+        justify-content: center;
+        margin-left: 10px;
+        /* Tambahkan margin untuk memberi jarak dari tepi */
+        margin-right: 10px;
+      }
+
+      nav span i {
+        display: flex;
+        color: black;
+        font-size: 30px;
+        align-items: center;
+        align-content: center;
+      }
+
+      nav span .fi.fi-bs-search {
+        font-size: 20px;
+      }
+
+      nav a {
+        text-decoration: none;
+      }
+
+      .page-title-icon {
+  height: 30px;
+  width: 30px;
+}
+    </style>
+  </head>
+
+  <body class="theme-light">
+ 
+
+    <div id="page">
+      <div id="footer-bar" class="d-flex">
+        <div style="margin-left: 10px"></div>
+        <div class="flex-fill speach-input">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter your Message here"
+          />
+        </div>
+        <div class="ms-3 speach-icon">
+          <a href="#" class="bg-button-chatbot color-white me-2"
+            ><i class="fa fa-arrow-up pt-2"></i
+          ></a>
+        </div>
+      </div>
+
+      <nav>
+        <a href=""
+          ><span><i class="fi fi-rr-arrow-small-left"></i></span
+        ></a>
+        <h2>Chatbot AI</h2>
+        <a
+          href="#"
+          class="page-title-icon shadow-xl bg-theme color-theme show-on-theme-light"
+          data-toggle-theme
+          ><i class="fa fa-moon"></i
+        ></a>
+        <a
+          href="#"
+          class="page-title-icon shadow-xl bg-theme color-theme show-on-theme-dark"
+          data-toggle-theme
+          ><i class="fa fa-lightbulb color-yellow-dark"></i
+        ></a>
+      </nav>
+
+      <div class="page-title-clear"></div>
+
+      <div class="page-content">
+        <div class="content mt-0 mb-n5">
+          <!-- Chatbot Message -->
+
+          <!-- User Message -->
+          <div class="speech-bubble-eunoia speech-left bg-chat-eunoia">
+            Saya merasa agak tertekan akhir-akhir ini dan tidak tahu harus
+            berbuat apa.
+          </div>
+          <div class="clearfix"></div>
+
+          <!-- Chatbot Message -->
+          <div class="kotak-suara">
+            <h3>Jawaban Ai</h3>
+            <p>
+              Terima kasih sudah berbagi. Bisa ceritakan lebih lanjut tentang
+              apa yang membuat Anda merasa tertekan?
+            </p>
+          </div>
+          <div class="clearfix"></div>
+
+          <!-- User Message -->
+          <div class="speech-bubble-eunoia speech-left bg-chat-eunoia">
+            Akhir-akhir ini saya merasa sangat cemas tentang pekerjaan dan masa
+            depan saya.
+          </div>
+          <div class="clearfix"></div>
+
+          <!-- Chatbot Message -->
+          <div class="kotak-suara">
+            <h3>Jawaban Ai</h3>
+            <p>
+              Mengerti. Perasaan cemas tentang pekerjaan dan masa depan bisa
+              sangat berat. Apakah ada faktor tertentu yang menyebabkan
+              kecemasan ini?
+            </p>
+          </div>
+          <div class="clearfix"></div>
+
+          <!-- User Message -->
+          <div class="speech-bubble-eunoia speech-left bg-chat-eunoia">
+            Ya, pekerjaan saya sangat menekan dan saya khawatir tidak akan
+            berhasil dalam karier saya.
+          </div>
+          <div class="clearfix"></div>
+
+          <!-- Chatbot Message -->
+          <div class="kotak-suara">
+            <h3>Jawaban Ai</h3>
+            <p>
+              Itu adalah perasaan yang sangat umum. Kadang-kadang, membuat
+              rencana kecil atau berbicara dengan seseorang tentang kecemasan
+              Anda bisa membantu. Apakah Anda sudah mencoba hal-hal ini?
+            </p>
+          </div>
+          <div class="clearfix"></div>
+
+          <!-- User Message -->
+          <div class="speech-bubble-eunoia speech-left bg-chat-eunoia">
+            Saya belum mencoba berbicara dengan seseorang. Saya merasa malu dan
+            tidak tahu harus mulai dari mana.
+          </div>
+          <div class="clearfix"></div>
+
+          <!-- Chatbot Message -->
+          <div class="kotak-suara">
+            <h3>Jawaban Ai</h3>
+            <p>
+              Tidak perlu malu. Berbicara dengan seorang profesional bisa sangat
+              membantu. Mereka dapat memberikan dukungan dan strategi untuk
+              mengatasi perasaan Anda. Apakah Anda tertarik untuk mencari
+              dukungan seperti itu?
+            </p>
+          </div>
+          <div class="clearfix"></div>
+
+          <!-- User Message -->
+          <div class="speech-bubble-eunoia speech-left bg-chat-eunoia">
+            Mungkin. Tapi saya merasa bingung tentang bagaimana memulainya.
+          </div>
+          <div class="clearfix"></div>
+
+          <!-- Chatbot Message -->
+          <div class="kotak-suara">
+            <h3>Jawaban Ai</h3>
+            <p>
+              Anda bisa mulai dengan mencari terapis atau konselor di area Anda.
+              Banyak dari mereka menawarkan konsultasi awal yang bisa membantu
+              Anda memutuskan apakah itu cocok untuk Anda. Jika Anda butuh
+              bantuan mencari, saya bisa membantu.
+            </p>
+          </div>
+          <div class="clearfix"></div>
+
+          <!-- User Message -->
+          <div class="speech-bubble-eunoia speech-left bg-chat-eunoia">
+            Itu sangat membantu.
+          </div>
+          <div class="clearfix"></div>
+
+          <!-- Chatbot Message -->
+          <div class="kotak-suara">
+            <h3>Jawaban Ai</h3>
+            <p>
+              Sama-sama! Jangan ragu untuk kembali jika Anda membutuhkan bantuan
+              lebih lanjut. Semoga hari Anda menyenangkan.
+            </p>
+          </div>
+          <div class="clearfix"></div>
+          <p class="text-center mb-0 font-11 color-white">Yesterday, 1:45 AM</p>
+          <div style="margin-bottom: 50px"></div>
+        </div>
+      </div>
+      <!-- Page content ends here-->
+
+      <!-- Colors Menu-->
+      <div
+        id="menu-colors"
+        class="menu menu-box-bottom rounded-m"
+        data-menu-load="menu-colors.html"
+        data-menu-height="480"
+      ></div>
+    </div>
+
+    <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/custom.js"></script>
+  </body>
+</html>

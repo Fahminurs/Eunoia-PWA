@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>Explore & Care</title>
+    <!-- Flaticon -->
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.5.1/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+        <link rel="stylesheet"  type="text/css" href="styles/Explore&Care.css">
+
+    <!-- <link rel="stylesheet" type="text/css" href="styles/Footer-Eunoia.css"> -->
+
+ <style>  
+        @import url('https://fonts.googleapis.com/css2?family=Playwrite+ID:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');  
+
+        .Navigation-eunoia,  
+        .Navigation-eunoia ul,  
+        .Navigation-eunoia ul li,  
+        .Navigation-eunoia ul li a,  
+        .Navigation-eunoia ul li a .icon-eunoia,  
+        .Navigation-eunoia ul li a .text,  
+        .indikator-eunoia,  
+        .indikator-eunoia::before,  
+        .indikator-eunoia::after {  
+            margin: 0;  
+            padding: 0;  
+            box-sizing: border-box;  
+        }  
+
+        .Navigation-eunoia {  
+            font-family: 'Poppins', sans-serif;  
+            position: fixed;  
+            bottom: -5px;
+            left: 0;  
+            right: 0;  
+            z-index: 98;  
+            min-height: 61px;  
+            background-color: #ffffff;  
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+        }  
+
+        .Navigation-eunoia ul {  
+            display: flex;  
+            width: 90%;  
+            justify-content: space-between;  
+        }  
+
+        .Navigation-eunoia ul li {  
+            list-style: none;  
+            position: relative;  
+            width: 70px;  
+            height: 60px;  
+            z-index: 2;  
+        }  
+
+        .Navigation-eunoia ul li a {  
+            position: relative;  
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+            flex-direction: column;  
+            width: 100%;  
+            text-align: center;  
+            text-decoration: none;  
+        }  
+
+        .Navigation-eunoia ul li a .icon-eunoia {  
+            position: relative;  
+            display: block;  
+            line-height: 65px;  
+            font-size: 20px;  
+            transition: 0.5s;  
+            color: #999AE7;  
+        }  
+
+        .Navigation-eunoia ul li.active a .icon-eunoia {  
+            transform: translateY(-32px);  
+            color: #3A3B7B;  
+        }  
+
+        .Navigation-eunoia ul li a .text {  
+            position: absolute;  
+            background: #3A3B7B;  
+            color: #fff;  
+            padding: 2px 7px;  
+            border-radius: 12px;  
+            font-weight: 400;  
+            font-size: 12px;  
+            letter-spacing: 0.05em;  
+            transition: 0.5s;  
+            opacity: 0;  
+            transform: translateY(15px);  
+        }  
+
+        .Navigation-eunoia ul li.active a .text {  
+            transform: translateY(-4px);  
+            opacity: 1;  
+        }  
+
+        .indikator-eunoia {  
+            position: absolute;  
+            top: -35px;  
+            width: 70px;  
+            height: 70px;  
+            background: #ffffff;  
+            border-radius: 50%;  
+            z-index: 1;  
+            transition: 0.5s;  
+        }  
+
+        .indikator-eunoia::before {  
+            content: ' ';  
+            position: absolute;  
+            top: 5px;  
+            left: -27px;  
+            width: 30px;  
+            height: 30px;  
+            background: transparent;  
+            border-radius: 50%;  
+            box-shadow: 15px 18px #ffffff;  
+        }  
+
+        .indikator-eunoia::after {  
+            content: '';  
+            position: absolute;  
+            top: 5px;  
+            right: -28px;  
+            width: 30px;  
+            height: 30px;  
+            background: transparent;  
+            border-radius: 50%;  
+            box-shadow: -15px 18px #fff;  
+        }  
+    </style>  
+
+
+</head>
+
+<body>
+    <nav>
+
+        <h2>Explore And Care</h2>
+    </nav>
+
+
+
+    <div class="container">
+        <div class="jarak-eunoia"></div>
+        <div class="title-container-eunoia">
+            <h1>Explore</h1>
+            <hr>
+        </div>
+        <div class="grid-eunoia">
+            <a href="Diskusi.html">
+                <div class="card-eunoia">
+                    <div class="isi-card-eunoia">
+                        <h2>Forum Diskusi</h2>
+                        <p>Ceritakan kisahmu, dapatkan persfektif baru.</p>
+                    </div>
+                    <img src="images/Explore And Care/Diskusi.png" alt="Diary Illustration">
+                    <span><i class="fi fi-sr-angle-small-right"></i></span>
+                </div>
+            </a>
+            <a href="Chatbot-Ai.html">
+                <div class="card-eunoia">
+                    <div class="isi-card-eunoia">
+                        <h2>Chatbot</h2>
+                        <p>Temukan jawaban dan solusi dari berbagai pertanyaanmu dengan bantuan AI Chatbot.</p>
+                    </div>
+                    <img src="images/Explore And Care/AI Chatbot.png" alt="Diary Illustration">
+                    <span><i class="fi fi-sr-angle-small-right"></i></span>
+                </div>
+            </a>
+            <a href="History-Chat.html">
+                <div class="card-eunoia">
+                    <div class="isi-card-eunoia">
+                        <h2>Konsultasi </h2>
+                        <p> Atasi tantanganmu dengan cara konsultasi dengan tenaga ahli
+                            yang siap membantu.</p>
+                    </div>
+                    <img src="images/Explore And Care/Konsultasi Mental Health.png" alt="Diary Illustration">
+                    <span><i class="fi fi-sr-angle-small-right"></i></span>
+                </div>
+            </a>
+
+            <a href="Artikel.html">
+                <div class="card-eunoia">
+                    <div class="isi-card-eunoia">
+                        <h2>Artikel </h2>
+                        <p>
+                            Temukan wawasan baru dan perluas pengetahuanmu </p>
+                    </div>
+                    <img src="images/Explore And Care/Diskusi.png" alt="Diary Illustration">
+                    <span><i class="fi fi-sr-angle-small-right"></i></span>
+                </div>
+            </a>
+
+        </div>
+
+
+        <div class="title-container-eunoia">
+            <h1>Care</h1>
+            <hr>
+        </div>
+        <div class="grid-eunoia">
+            <a href="Breath.html">
+                <div class="card-eunoia">
+                    <div class="isi-card-eunoia">
+                        <h2>Breath </h2>
+                        <p>Tarik napas dalam-dalam dan rasakan ketenangan menyelimuti dirimu dengan setiap hembusan
+                            napas.</p>
+                    </div>
+                    <img src="images/Explore And Care/Diskusi.png" alt="Diary Illustration">
+                    <span><i class="fi fi-sr-angle-small-right"></i></span>
+                </div>
+            </a>
+            <a href="Relaxing-sound.html">
+                <div class="card-eunoia">
+                    <div class="isi-card-eunoia">
+                        <h2>Relaxing Sound</h2>
+                        <p>Nikmati suara yang menenangkan untuk merilekskan pikiranmu.</p>
+                    </div>
+                    <img src="images/Explore And Care/Relaxing Sound.png" alt="Diary Illustration">
+                    <span><i class="fi fi-sr-angle-small-right"></i></span>
+                </div>
+            </a>
+            <a href="Diary_List.html">
+                <div class="card-eunoia">
+                    <div class="isi-card-eunoia">
+                        <h2>Diary</h2>
+                        <p>Ungkapkan perasaanmu setiap hari dan temukan kedamaian.</p>
+                    </div>
+                    <img src="images/Explore And Care/Diary.png" alt="Diary Illustration">
+                    <span><i class="fi fi-sr-angle-small-right"></i></span>
+                </div>
+            </a>
+            <div class="jarak-eunoia"></div>
+
+        </div>
+    </div>
+
+    <div class="Navigation-eunoia">
+        <ul>
+            <li class="list-eunoia ">
+                <a href="Home.html">
+                    <span class="icon-eunoia "><i class="fi fi-sr-house-chimney"></i></span>
+                    <span class="text">Home</span>
+                </a>
+            </li>
+            <li class="list-eunoia active">
+                <a href="Explore&Care.html">
+                    <span class="icon-eunoia"><i class="fi fi-sr-sparkles"></i></span>
+                    <span class="text" style=" padding :0 10px; font-size: 10px;  z-index: 999999;">Explore&Care</span>
+                </a>
+            </li>
+           <li class="list-eunoia">
+                <a href="History-Chat.html">
+                    <span class="icon-eunoia"><i class="fi fi-sr-comment-alt-dots"></i></span>
+                    <span class="text">Chat</span>
+                </a>
+            </li>
+
+           <li class="list-eunoia">
+                <a href="#">
+                    <span class="icon-eunoia"><i class="fi fi-sr-grip-dots"></i></span>
+                    <span class="text">Settings</span>
+                </a>
+            </li>
+
+            <div class="indikator-eunoia"></div>
+        </ul>
+
+    </div>
+    
+    <script>
+        const list = document.querySelectorAll('.list-eunoia');
+        const indikator = document.querySelector('.indikator-eunoia');
+        
+        function updateIndicatorPosition(activeItem) {
+            if (activeItem) {
+                const ul = activeItem.parentElement; // Ambil referensi ke ul
+                const ulLeftOffset = ul.offsetLeft; // Jarak ul dari kiri
+                const liWidth = activeItem.offsetWidth; // Lebar item list yang aktif
+                const liLeftOffset = activeItem.offsetLeft; // Jarak item list dari kiri
+        
+                // Hitung posisi yang benar untuk indikator
+                const correctOffset = liLeftOffset - ulLeftOffset;
+        
+                // Update ukuran dan posisi indikator
+                indikator.style.width = `${liWidth}px`;
+                indikator.style.transform = `translateX(${correctOffset}px)`;
+            }
+        }
+        
+        function activeLink() {
+            list.forEach((item) => item.classList.remove('active'));
+            this.classList.add('active');
+            updateIndicatorPosition(this);
+        }
+        
+        // Tambahkan event listener ke setiap item list
+        list.forEach((item) => item.addEventListener('click', activeLink));
+        
+        // Set indikator ke posisi awal saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            const activeItem = document.querySelector('.list-eunoia.active');
+            updateIndicatorPosition(activeItem);
+        });
+        
+        // Tambahkan event listener untuk memperbarui posisi indikator saat ukuran layar berubah
+        window.addEventListener('resize', () => {
+            const activeItem = document.querySelector('.list-eunoia.active');
+            updateIndicatorPosition(activeItem);
+        });
+        
+        
+        
+        
+            </script>
+            <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

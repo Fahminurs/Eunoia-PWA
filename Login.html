@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eunoia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/styles/Login.css">
+
+</head>
+
+<body>
+    <nav class="nav-back">
+        <span></span>
+        <a href="">
+            <i class="fas fa-greater-than fa-flip-horizontal"></i>
+        </a>
+
+    </nav>
+    <div class="logo">
+        <img src="images/Logo/Logo Eunoia.png"  alt="">
+    </div>
+    <div class="Pesan">
+        <h2>Selamat Datang!</h2>
+        <p>Masuk Dengan Akun</p>
+    </div>
+    <div class="login-input">
+        <div class="input-style has-borders has-icon validate-field mb-4">
+            <i class="fa fa-at color-highlight"></i>
+
+            <input type="email" class="form-control" placeholder="Email">
+            <label for="email" class="color-highlight">Email</label>
+            <div class="validasi">
+                <i class="fa fa-times disabled invalid color-red-dark"></i>
+                <i class="fa fa-check disabled valid color-green-dark"></i>
+            </div>
+        </div>
+        <div class="input-style has-borders has-icon validate-field mb-4">
+            <i class="fa fa-lock"></i>
+            <input type="password" class="form-control validate-password" id="password" placeholder="Password">
+            <label for="password" class="color-highlight">Password</label>
+            <div class="eye-icons">
+                <i class="fa fa-eye-slash" style="display: none;"></i>
+                <i class="fa fa-eye"></i>
+            </div>
+        </div>
+        <div class="remember-me">
+            <div>
+                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                <label for="vehicle1">Remember Me</label>
+            </div>
+            <a href="Lupa Password.html" class="forgot-password">
+                <p>Lupa Password?</p>
+            </a>
+        </div>
+
+
+        <div class="button-bawah">
+            <form action="Home.html">
+                <div class="Button-login">
+                    <button type="submit" >Masuk</button>
+                </div>
+
+            </form>
+            <form action="">
+                <div class="Button-login">
+
+                    <button type="submit" class="btn-google"> <svg xmlns="http://www.w3.org/2000/svg" width="0.98em"
+                            height="1em" viewBox="0 0 256 262">
+                            <path fill="#4285f4"
+                                d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622l38.755 30.023l2.685.268c24.659-22.774 38.875-56.282 38.875-96.027" />
+                            <path fill="#34a853"
+                                d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055c-34.523 0-63.824-22.773-74.269-54.25l-1.531.13l-40.298 31.187l-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1" />
+                            <path fill="#fbbc05"
+                                d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82c0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602z" />
+                            <path fill="#eb4335"
+                                d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0C79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251" />
+                        </svg> 
+                         <span>Masuk Dengan Google</span>
+                    </button>
+
+                </div>
+            </form>
+        </div>
+        <form action="">
+            <div class="text-center">
+                <p>Belum Mempunyai Akun?</p>
+                <a href="Registrasi.html">Registrasi</a>
+
+            </div>
+
+        </form>
+
+    </div>
+    <script src="/scripts/Login.js"></script>
+
+</body>
+
+</html>
