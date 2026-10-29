@@ -1,18 +1,20 @@
-# Eunoia PWA — screenshot portfolio
+# Eunoia PWA — Screenshot Portfolio
 
-Real captures of the static PWA front end in this repo (served with `python3 -m http.server`), 390×844 at 2× scale, headless Chromium via Playwright.
+Tangkapan layar asli dari front end PWA di repo ini (disajikan dengan `python3 -m http.server`), 390×844 @2×, headless Chromium via Playwright.
 
-Note: this repo only contains the HTML/CSS/JS front end with its own built-in sample content (the Laravel + LSTM backend is not in it), so mood analysis and AI replies shown are the page's static demo content, not live model output.
-Forum / diskusi pages are intentionally left out (sensitive sample posts).
+> Repo ini hanya berisi front end (HTML/CSS/JS) dengan konten contoh bawaan. Backend Laravel + LSTM tidak ada di sini, jadi analisis mood dan balasan AI yang tampil adalah konten statis, bukan keluaran model langsung. Halaman forum/diskusi sengaja tidak disertakan (contoh postingan sensitif).
 
-| File | Shows |
-|---|---|
-| `01-login-390.png` | Login |
-| `02-home-390.png` | Home: banner, mental state bars (depresi/anxiety/stress), mood |
-| `03-diary-list-390.png` | Diary list with mood entries |
-| `04-diary-tulis-390.png` | Writing a diary entry |
-| `05-chatbot-ai-390.png` | Chatbot AI conversation |
-| `06-breath-390.png` | Breathing exercise |
-| `07-relaxing-sound-390.png` | Relaxing sounds |
-| `08-explore-care-390.png` | Explore & Care menu |
-| `09-artikel-390.png` | Mental health articles |
+| Login | Home | Diary List |
+|:---:|:---:|:---:|
+| <img src="01-login-390.png" width="240"> | <img src="02-home-390.png" width="240"> | <img src="03-diary-list-390.png" width="240"> |
+| Masuk akun | Banner, bar kondisi mental (depresi/anxiety/stress), mood | Daftar diary dengan mood |
+
+| Tulis Diary | Chatbot AI | Breathing |
+|:---:|:---:|:---:|
+| <img src="04-diary-tulis-390.png" width="240"> | <img src="05-chatbot-ai-390.png" width="240"> | <img src="06-breath-390.png" width="240"> |
+| Menulis catatan diary | Percakapan dengan chatbot | Latihan pernapasan |
+
+| Relaxing Sound | Explore & Care | Artikel |
+|:---:|:---:|:---:|
+| <img src="07-relaxing-sound-390.png" width="240"> | <img src="08-explore-care-390.png" width="240"> | <img src="09-artikel-390.png" width="240"> |
+| Suara relaksasi | Menu Explore & Care | Artikel kesehatan mental |
